@@ -112,13 +112,20 @@ const MobileMenu = () => {
                     </div>
                   ))}
                   
-                  <div className="mt-8 pt-8 border-t border-zinc-100 dark:border-zinc-800">
+                  <div className="mt-8 pt-8 border-t border-zinc-100 dark:border-zinc-800 space-y-4">
                     <Link
                       href="/contact"
                       onClick={() => setIsOpen(false)}
                       className="flex h-12 w-full items-center justify-center rounded-xl bg-blue-600 font-semibold text-white transition-all hover:bg-blue-700 active:scale-[0.98]"
                     >
                       Talk to Expert
+                    </Link>
+                    <Link
+                      href="/schedule-call"
+                      onClick={() => setIsOpen(false)}
+                      className="flex h-12 w-full items-center justify-center rounded-xl border border-zinc-200 font-semibold text-zinc-900 transition-all hover:bg-zinc-50 active:scale-[0.98] dark:border-zinc-800 dark:text-zinc-50 dark:hover:bg-zinc-900"
+                    >
+                      Schedule a Call
                     </Link>
                   </div>
                 </div>
