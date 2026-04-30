@@ -62,8 +62,8 @@ const FAQItem = ({ question, answer }: { question: string; answer: string }) => 
 
 const FAQ = () => {
   return (
-    <section className="bg-white py-24 dark:bg-black">
-      <div className="container mx-auto px-6 lg:px-8">
+    <section className="bg-white pt-24 pb-12 dark:bg-black">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-3xl">
           <div className="mb-16 text-center">
             <h2 className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-4xl">
@@ -79,16 +79,44 @@ const FAQ = () => {
               <FAQItem key={i} question={faq.question} answer={faq.answer} />
             ))}
           </div>
+        </div>
 
-          <div className="mt-16 rounded-3xl bg-blue-600 p-8 text-center text-white lg:p-12">
-            <h3 className="text-2xl font-bold">Still have questions?</h3>
-            <p className="mt-4 text-blue-100">
-              Our experts are ready to help you navigate the complexities of business compliance.
-            </p>
-            <div className="mt-8 flex justify-center">
-              <button className="rounded-full bg-white px-8 py-3 font-bold text-blue-600 shadow-xl transition-transform hover:scale-105 active:scale-[0.98]">
-                Talk to an Expert
-              </button>
+        <div className="relative mt-20 overflow-hidden rounded-[2.5rem] bg-zinc-900 px-8 py-12 text-white dark:bg-zinc-950 lg:p-16">
+          {/* Abstract Background Elements */}
+          <div className="absolute inset-0 z-0">
+            <div className="absolute -top-[20%] -right-[10%] h-[150%] w-[50%] skew-x-12 bg-blue-600/10 blur-[100px]" />
+            <div className="absolute bottom-0 left-0 h-full w-full opacity-[0.03]"
+              style={{ backgroundImage: `radial-gradient(circle at 2px 2px, white 1px, transparent 0)`, backgroundSize: '24px 24px' }}
+            />
+          </div>
+
+          <div className="relative z-10 grid grid-cols-1 gap-10 lg:grid-cols-2 lg:items-center">
+            <div>
+              <h3 className="text-3xl font-bold leading-tight tracking-tight sm:text-4xl">
+                Still have questions? <br />
+                <span className="text-blue-400">Talk to our experts.</span>
+              </h3>
+            </div>
+
+            <div className="flex flex-col gap-8">
+              <p className="text-lg text-zinc-400 leading-relaxed">
+                Our team of seasoned professionals is ready to help you navigate the complexities
+                of regulatory compliance and business growth.
+              </p>
+              <div className="flex flex-wrap items-center gap-6">
+                <button className="group flex items-center gap-2 rounded-xl bg-white px-6 py-3.5 text-base font-bold text-zinc-950 transition-all hover:bg-zinc-100 active:scale-[0.98]">
+                  Talk to an Expert
+                  <div className="flex h-5 w-5 items-center justify-center rounded-full bg-zinc-900 text-white transition-transform group-hover:translate-x-0.5">
+                    <Plus size={12} strokeWidth={3} />
+                  </div>
+                </button>
+                <button className="flex items-center gap-2 text-base font-semibold text-white transition-colors hover:text-blue-400">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full border border-zinc-700 bg-zinc-800/50">
+                    <div className="ml-0.5 h-0 w-0 border-y-[6px] border-l-[10px] border-y-transparent border-l-white" />
+                  </div>
+                  Schedule a Call
+                </button>
+              </div>
             </div>
           </div>
         </div>
