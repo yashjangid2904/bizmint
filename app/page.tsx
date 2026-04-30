@@ -1,5 +1,5 @@
 "use client";
-
+ 
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, CheckCircle2, ShieldCheck, Zap, X } from "lucide-react";
@@ -7,9 +7,9 @@ import Process from "@/components/sections/Process";
 import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import FAQ from "@/components/sections/FAQ";
 import { useState } from "react";
-
+ 
 import ServiceOrbit from "@/components/sections/ServiceOrbit";
-
+ 
 export default function Home() {
   return (
     <div className="relative">
@@ -19,18 +19,18 @@ export default function Home() {
         <div className="absolute inset-0 z-0">
           {/* Mesh Gradient */}
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_50%_-20%,#3b82f615_0%,transparent_50%)] dark:bg-[radial-gradient(circle_at_50%_-20%,#3b82f630_0%,transparent_50%)]" />
-          
+         
           {/* Suble Grid */}
           <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 brightness-100 contrast-150" />
-          <div 
-            className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]" 
-            style={{ backgroundImage: 'linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)', backgroundSize: '40px 40px' }} 
+          <div
+            className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]"
+            style={{ backgroundImage: 'linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)', backgroundSize: '40px 40px' }}
           />
         </div>
-
+ 
         <div className="relative z-10 mx-auto w-full max-w-7xl px-6 lg:px-12">
           <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
-            
+           
             {/* Left Content: High-End Typography */}
             <div className="flex flex-col gap-10 text-center lg:text-left">
               <motion.div
@@ -63,7 +63,7 @@ export default function Home() {
                   </span>
                   Trusted Compliance Partner
                 </motion.div> */}
-
+ 
                 <h1 className="font-outfit text-4xl font-black tracking-tight text-zinc-900 dark:text-white sm:text-5xl xl:text-6xl leading-[0.95]">
                    <br />
                   <span className="relative inline-block text-blue-600 dark:text-blue-500">
@@ -73,12 +73,12 @@ export default function Home() {
                   <br />
                   Modern Business
                 </h1>
-                
+               
                 <p className="mt-10 max-w-xl text-lg leading-relaxed text-zinc-600 dark:text-zinc-400 sm:text-xl font-medium">
-                  Bizmint LLP bridges the gap between complex regulation and seamless growth. 
+                  Bizmint LLP bridges the gap between complex regulation and seamless growth.
                   We manage the statutory burden so you can focus on scale.
                 </p>
-
+ 
                 <div className="mt-12 flex flex-wrap items-center justify-center gap-6 lg:justify-start">
                   <Link
                     href="/contact"
@@ -96,7 +96,7 @@ export default function Home() {
                   </Link>
                 </div>
               </motion.div>
-
+ 
               {/* Floating Performance Indicator */}
               <motion.div
                 initial={{ opacity: 0 }}
@@ -115,7 +115,7 @@ export default function Home() {
                 </div>
               </motion.div>
             </div>
-
+ 
             {/* Right Visual (Interactive Orbit) */}
             <div className="relative flex items-center justify-center lg:justify-end">
               <motion.div
@@ -129,11 +129,11 @@ export default function Home() {
                 <ServiceOrbit />
               </motion.div>
             </div>
-
+ 
           </div>
         </div>
       </section>
-
+ 
      {/* Core Expertise Carousel Section */}
       <section className="relative overflow-hidden bg-zinc-50 py-24 dark:bg-zinc-950">
         <div className="container mx-auto px-6 lg:px-8">
@@ -250,3 +250,4 @@ export default function Home() {
     </div>
   );
 }
+ 
