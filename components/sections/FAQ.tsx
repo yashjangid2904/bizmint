@@ -119,7 +119,7 @@ const FAQ = () => {
                     </div>
                   </button>
                 </Link>
-                <Link href="/contact">
+                <Link href="/schedule-call">
                   <button className="flex items-center gap-2 text-base font-semibold text-white transition-colors hover:text-blue-400">
                     <div className="flex h-10 w-10 items-center justify-center rounded-full border border-zinc-700 bg-zinc-800/50">
                       <div className="ml-0.5 h-0 w-0 border-y-[6px] border-l-[10px] border-y-transparent border-l-white" />
