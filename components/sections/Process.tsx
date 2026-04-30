@@ -47,8 +47,8 @@ const Process = () => {
           <h2 className="mt-6 font-outfit text-4xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-5xl">
             How We <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Simplify</span> Compliance
           </h2>
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-zinc-600 dark:text-zinc-400">
-            A seamless, transparent process designed to take the complexity out of 
+          <p className="mx-auto mt-6 max-w-2xl text-base text-zinc-600 dark:text-zinc-400">
+            A seamless, transparent process designed to take the complexity out of
             regulatory requirements so you can focus on building your business.
           </p>
         </div>
@@ -56,7 +56,7 @@ const Process = () => {
         <div className="relative">
           {/* Connector Line (Desktop) */}
           <div className="absolute top-[3rem] left-[12%] hidden h-[2px] w-[76%] bg-zinc-100 dark:bg-zinc-800 lg:block">
-            <motion.div 
+            <motion.div
               initial={{ scaleX: 0 }}
               whileInView={{ scaleX: 1 }}
               viewport={{ once: true }}
@@ -83,7 +83,7 @@ const Process = () => {
                 {/* Icon Container */}
                 <div className="relative z-10 mb-8 flex h-16 w-16 items-center justify-center rounded-2xl border border-zinc-200 bg-white text-slate-900 shadow-sm transition-all duration-500 group-hover:scale-110 group-hover:border-slate-900 group-hover:bg-slate-900 group-hover:text-white group-hover:shadow-2xl dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-400 dark:group-hover:bg-slate-900">
                   <step.icon size={28} strokeWidth={1.5} />
-                  
+
                   {/* Step Badge */}
                   <div className="absolute -top-1 -right-1 flex h-6 w-6 items-center justify-center rounded-full bg-linear-to-br from-blue-600 to-indigo-600 text-[10px] font-bold text-white shadow-lg">
                     {i + 1}
@@ -91,14 +91,14 @@ const Process = () => {
                 </div>
 
                 <div className="relative z-10">
-                  <h3 className="font-outfit text-xl font-bold text-zinc-900 dark:text-zinc-50 lg:text-2xl">
+                  <h3 className="font-outfit text-lg font-bold text-zinc-900 dark:text-zinc-50 lg:text-xl">
                     {step.title}
                   </h3>
-                  <p className="mt-4 text-zinc-600 leading-relaxed dark:text-zinc-400">
+                  <p className="mt-4 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
                     {step.desc}
                   </p>
                 </div>
-                
+
                 {/* Mobile Connector (Vertical) */}
                 {i < steps.length - 1 && (
                   <div className="mt-12 h-16 w-[2px] bg-linear-to-b from-blue-600 to-transparent lg:hidden" />

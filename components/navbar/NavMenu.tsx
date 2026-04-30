@@ -24,7 +24,7 @@ const NavMenu = () => {
             <>
               <button
                 className={cn(
-                  "flex items-center gap-1.5 px-4 py-2 text-sm font-bold transition-all rounded-full font-display",
+                  "flex items-center gap-1.5 px-4 py-2 text-sm font-semibold transition-all rounded-full font-sans",
                   activeItem === item.title 
                     ? "bg-zinc-100 text-blue-600 dark:bg-zinc-900 dark:text-blue-400" 
                     : "text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200 hover:bg-zinc-100/50 dark:hover:bg-zinc-900/50"
@@ -72,7 +72,7 @@ const NavMenu = () => {
             <Link
               href={item.href || "#"}
               className={cn(
-                "block px-4 py-2 text-sm font-bold transition-all rounded-full font-display",
+                "block px-4 py-2 text-sm font-semibold transition-all rounded-full font-sans",
                 activeItem === item.title 
                   ? "bg-zinc-100 text-blue-600 dark:bg-zinc-900 dark:text-blue-400" 
                   : "text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200 hover:bg-zinc-100/50 dark:hover:bg-zinc-900/50"

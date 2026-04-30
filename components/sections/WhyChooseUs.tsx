@@ -2,13 +2,13 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { 
-  ShieldCheck, 
-  Zap, 
-  Users, 
-  BarChart3, 
-  Globe2, 
-  HeartHandshake 
+import {
+  ShieldCheck,
+  Zap,
+  Users,
+  BarChart3,
+  Globe2,
+  HeartHandshake
 } from "lucide-react";
 
 const features = [
@@ -62,16 +62,16 @@ const WhyChooseUs = () => {
             </span>
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-base text-zinc-600 dark:text-zinc-400 sm:text-lg">
-            We combine deep regulatory expertise with modern technology to deliver 
+            We combine deep regulatory expertise with modern technology to deliver
             a seamless compliance experience for modern enterprises.
           </p>
         </div>
 
         {/* Circular Gallery (Desktop) / Grid (Mobile) */}
         <div className="relative flex min-h-[450px] items-center justify-center lg:min-h-[650px]">
-          
+
           {/* Central Core */}
-          <motion.div 
+          <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
             className="relative z-20 flex h-52 w-52 flex-col items-center justify-center rounded-full border border-zinc-200 bg-white/80 p-6 text-center shadow-2xl backdrop-blur-xl dark:border-zinc-800 dark:bg-zinc-900/80 sm:h-64 sm:w-64"
@@ -108,8 +108,8 @@ const WhyChooseUs = () => {
                   initial={{ opacity: 0, x: 0, y: 0 }}
                   whileInView={{ opacity: 1, x, y }}
                   viewport={{ once: true }}
-                  transition={{ 
-                    duration: 0.8, 
+                  transition={{
+                    duration: 0.8,
                     delay: i * 0.1,
                     type: "spring",
                     stiffness: 50

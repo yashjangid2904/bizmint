@@ -15,7 +15,7 @@ const Navbar = () => {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      
+
       // Determine if scrolled down past threshold
       setIsScrolled(currentScrollY > 20);
 
@@ -38,12 +38,12 @@ const Navbar = () => {
       className={cn(
         "fixed left-0 top-0 z-[100] w-full transition-all duration-500",
         !isVisible && "-translate-y-full",
-        isScrolled 
-          ? "bg-white/70 py-2 shadow-[0_8px_32px_rgba(0,0,0,0.05)] backdrop-blur-xl dark:bg-zinc-950/70 dark:shadow-zinc-950/50 border-b border-white/20 dark:border-zinc-800/50" 
+        isScrolled
+          ? "bg-white/70 py-2 shadow-[0_8px_32px_rgba(0,0,0,0.05)] backdrop-blur-xl dark:bg-zinc-950/70 dark:shadow-zinc-950/50 border-b border-white/20 dark:border-zinc-800/50"
           : "bg-transparent py-5"
       )}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-8">
+      <div className="flex w-full items-center justify-between px-6 lg:px-12">
         {/* Logo */}
         <Link href="/" className="group flex items-center gap-2.5">
           <div className="relative">
@@ -53,14 +53,11 @@ const Navbar = () => {
             </div>
           </div>
           <div className="flex flex-col">
-            <span className="font-display text-2xl font-black tracking-tight text-zinc-900 dark:text-zinc-50">
+            <span className="font-sans text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
               Bizmint
             </span>
             <div className="flex items-center gap-1.5">
-              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400">
-                LLP Advisory
-              </span>
-              <div className="h-1 w-1 rounded-full bg-emerald-500 animate-pulse" />
+
             </div>
           </div>
         </Link>
@@ -74,11 +71,11 @@ const Navbar = () => {
         <div className="flex items-center gap-4">
           <Link
             href="/contact"
-            className="hidden rounded-full bg-linear-to-r from-zinc-900 to-zinc-800 px-6 py-2.5 text-sm font-bold text-white transition-all hover:scale-105 hover:shadow-xl hover:shadow-blue-900/20 active:scale-95 dark:from-zinc-50 dark:to-zinc-200 dark:text-zinc-950 lg:block"
+            className="hidden rounded-full bg-linear-to-r from-zinc-900 to-zinc-800 px-6 py-2.5 text-sm font-semibold text-white transition-all hover:scale-105 hover:shadow-xl hover:shadow-blue-900/20 active:scale-95 dark:from-zinc-50 dark:to-zinc-200 dark:text-zinc-950 lg:block"
           >
             Talk to Expert
           </Link>
-          
+
           {/* Mobile Menu Toggle */}
           <MobileMenu />
         </div>

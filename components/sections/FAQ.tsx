@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus, Minus } from "lucide-react";
+import Link from "next/link";
 
 const faqs = [
   {
@@ -65,14 +66,20 @@ const FAQ = () => {
     <section className="bg-white pt-24 pb-12 dark:bg-black">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-3xl">
-          <div className="mb-16 text-center">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mb-16 text-center"
+          >
             <h2 className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-4xl">
               Frequently Asked <span className="text-blue-600">Questions</span>
             </h2>
             <p className="mt-4 text-lg text-zinc-600 dark:text-zinc-400">
               Everything you need to know about starting and managing your business with Bizmint.
             </p>
-          </div>
+          </motion.div>
 
           <div className="flex flex-col">
             {faqs.map((faq, i) => (
@@ -104,18 +111,22 @@ const FAQ = () => {
                 of regulatory compliance and business growth.
               </p>
               <div className="flex flex-wrap items-center gap-6">
-                <button className="group flex items-center gap-2 rounded-xl bg-white px-6 py-3.5 text-base font-bold text-zinc-950 transition-all hover:bg-zinc-100 active:scale-[0.98]">
-                  Talk to an Expert
-                  <div className="flex h-5 w-5 items-center justify-center rounded-full bg-zinc-900 text-white transition-transform group-hover:translate-x-0.5">
-                    <Plus size={12} strokeWidth={3} />
-                  </div>
-                </button>
-                <button className="flex items-center gap-2 text-base font-semibold text-white transition-colors hover:text-blue-400">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full border border-zinc-700 bg-zinc-800/50">
-                    <div className="ml-0.5 h-0 w-0 border-y-[6px] border-l-[10px] border-y-transparent border-l-white" />
-                  </div>
-                  Schedule a Call
-                </button>
+                <Link href="/contact">
+                  <button className="group flex items-center gap-2 rounded-xl bg-white px-6 py-3.5 text-base font-bold text-zinc-950 transition-all hover:bg-zinc-100 active:scale-[0.98]">
+                    Talk to an Expert
+                    <div className="flex h-5 w-5 items-center justify-center rounded-full bg-zinc-900 text-white transition-transform group-hover:translate-x-0.5">
+                      <Plus size={12} strokeWidth={3} />
+                    </div>
+                  </button>
+                </Link>
+                <Link href="/contact">
+                  <button className="flex items-center gap-2 text-base font-semibold text-white transition-colors hover:text-blue-400">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full border border-zinc-700 bg-zinc-800/50">
+                      <div className="ml-0.5 h-0 w-0 border-y-[6px] border-l-[10px] border-y-transparent border-l-white" />
+                    </div>
+                    Schedule a Call
+                  </button>
+                </Link>
               </div>
             </div>
           </div>
