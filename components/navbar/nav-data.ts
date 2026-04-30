@@ -34,7 +34,7 @@ export interface NavItem {
 }
 
 export const navItems: NavItem[] = [
-  { title: "Home", href: "/" },
+  // { title: "Home", href: "/" },
   {
     title: "Start Business",
     items: [
