@@ -152,50 +152,115 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Feature Section */}
-      <section className="bg-zinc-50 py-24 dark:bg-zinc-900/50">
+      {/* Core Expertise Carousel Section */}
+      <section className="relative overflow-hidden bg-zinc-50 py-24 dark:bg-zinc-950">
         <div className="container mx-auto px-6 lg:px-8">
-          <div className="mb-16 text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-4xl">
-              Our Core <span className="text-blue-600">Expertise</span>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mb-16 text-center"
+          >
+            <h2 className="font-outfit text-4xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-5xl">
+              Our Core <span className="bg-linear-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Expertise</span>
             </h2>
-          </div>
+          </motion.div>
           <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-3">
-            {[
-              {
-                title: "Expert Compliance",
-                desc: "Navigate complex ROC, GST, and Income Tax filings with our seasoned professionals.",
-                icon: ShieldCheck,
-              },
-              {
-                title: "Business Setup",
-                desc: "Fast-track your Private Limited or LLP registration with zero hassle.",
-                icon: CheckCircle2,
-              },
-              {
-                title: "Regulatory Licensing",
-                desc: "Expert assistance for SEBI, RBI, BIS, and specialized insurance licenses.",
-                icon: ArrowRight,
-              },
-            ].map((feature, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="rounded-3xl border border-zinc-200 bg-white p-8 transition-all hover:shadow-xl dark:border-zinc-800 dark:bg-zinc-950"
-              >
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-50 text-blue-600 dark:bg-blue-900/20 dark:text-blue-400">
-                  <feature.icon size={24} />
-                </div>
-                <h3 className="text-xl font-bold text-zinc-900 dark:text-zinc-50">{feature.title}</h3>
-                <p className="mt-4 text-zinc-600 dark:text-zinc-400">{feature.desc}</p>
-              </motion.div>
-            ))}
+            {[]
+              .map((feature, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  className="rounded-3xl border border-zinc-200 bg-white p-8 transition-all hover:shadow-xl dark:border-zinc-800 dark:bg-zinc-950"
+                >
+
+
+                </motion.div>
+              ))}
           </div>
         </div>
+
+        {/* Carousel Container */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="relative flex overflow-hidden"
+        >
+          {/* Gradient Fades for Carousel edges */}
+          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-32 bg-linear-to-r from-zinc-50 to-transparent dark:from-zinc-950" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-32 bg-linear-to-l from-zinc-50 to-transparent dark:from-zinc-950" />
+
+          <motion.div
+            animate={{
+              x: ["0%", "-50%"],
+            }}
+            transition={{
+              duration: 30,
+              repeat: Infinity,
+              ease: "linear"
+            }}
+            className="flex gap-8 px-4"
+          >
+            {[...Array(2)].map((_, listIndex) => (
+              <div key={listIndex} className="flex gap-8">
+                {[
+                  {
+                    title: "Expert Compliance",
+                    desc: "Navigate complex ROC, GST, and Income Tax filings with our seasoned professionals.",
+                    icon: ShieldCheck,
+                  },
+                  {
+                    title: "Business Setup",
+                    desc: "Fast-track your Private Limited or LLP registration with zero hassle.",
+                    icon: CheckCircle2,
+                  },
+                  {
+                    title: "Regulatory Licensing",
+                    desc: "Expert assistance for SEBI, RBI, BIS, and specialized insurance licenses.",
+                    icon: ArrowRight,
+                  },
+                  {
+                    title: "Intellectual Property",
+                    desc: "Protect your brand with Trademark, Copyright, and Patent registration services.",
+                    icon: ShieldCheck,
+                  },
+                  {
+                    title: "Audit & Assurance",
+                    desc: "Comprehensive internal and statutory audits to ensure financial transparency.",
+                    icon: CheckCircle2,
+                  },
+                  {
+                    title: "Tax Strategy",
+                    desc: "Strategic tax planning and optimization for domestic and cross-border operations.",
+                    icon: Zap,
+                  },
+                ].map((feature, i) => (
+                  <div
+                    key={i}
+                    className="group relative w-80 shrink-0 overflow-hidden rounded-3xl border border-zinc-200 bg-white p-8 transition-all duration-300 hover:border-slate-900 hover:shadow-2xl dark:border-zinc-800 dark:bg-zinc-900/50 dark:hover:border-slate-800"
+                  >
+                    <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-slate-50 text-slate-900 transition-all duration-300 group-hover:bg-slate-900 group-hover:text-white dark:bg-slate-900/20 dark:text-slate-400">
+                      <feature.icon size={28} strokeWidth={1.5} />
+                    </div>
+                    <h3 className="font-outfit text-xl font-bold text-zinc-900 dark:text-zinc-50">{feature.title}</h3>
+                    <p className="mt-4 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">{feature.desc}</p>
+
+                    {/* Decorative hover accent */}
+                    <div className="absolute bottom-0 left-0 h-1 w-0 bg-slate-900 transition-all duration-500 group-hover:w-full" />
+                  </div>
+                ))}
+              </div>
+            ))}
+          </motion.div>
+        </motion.div>
       </section>
+
 
       <Process />
       <WhyChooseUs />

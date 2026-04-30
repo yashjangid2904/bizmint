@@ -65,14 +65,20 @@ const FAQ = () => {
     <section className="bg-white pt-24 pb-12 dark:bg-black">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-3xl">
-          <div className="mb-16 text-center">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mb-16 text-center"
+          >
             <h2 className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-4xl">
               Frequently Asked <span className="text-blue-600">Questions</span>
             </h2>
             <p className="mt-4 text-lg text-zinc-600 dark:text-zinc-400">
               Everything you need to know about starting and managing your business with Bizmint.
             </p>
-          </div>
+          </motion.div>
 
           <div className="flex flex-col">
             {faqs.map((faq, i) => (
