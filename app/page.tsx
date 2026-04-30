@@ -3,6 +3,9 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle2, ShieldCheck, Zap } from "lucide-react";
+import Process from "@/components/sections/Process";
+import WhyChooseUs from "@/components/sections/WhyChooseUs";
+import FAQ from "@/components/sections/FAQ";
 
 export default function Home() {
   return (
@@ -72,6 +75,11 @@ export default function Home() {
       {/* Feature Section */}
       <section className="bg-zinc-50 py-24 dark:bg-zinc-900/50">
         <div className="container mx-auto px-6 lg:px-8">
+          <div className="mb-16 text-center">
+            <h2 className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-4xl">
+              Our Core <span className="text-blue-600">Expertise</span>
+            </h2>
+          </div>
           <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-3">
             {[
               {
@@ -109,8 +117,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Extra height for scroll testing */}
-      <div className="h-[1000px] bg-white dark:bg-black" />
+      <Process />
+      <WhyChooseUs />
+      <FAQ />
     </div>
   );
 }
