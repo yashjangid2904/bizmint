@@ -44,9 +44,23 @@ const ContactForm = () => {
   } = useForm<FormData>();
 
   useEffect(() => {
-    const service = searchParams.get("service");
-    if (service) {
-      setValue("service", service);
+    const slug = searchParams.get("service");
+    if (slug) {
+      // Create a mapping of slug -> service name
+      const serviceMapping: Record<string, string> = {};
+      NAV_ITEMS.forEach(category => {
+        category.items.forEach(item => {
+          const itemSlug = item.href.split('/').pop();
+          if (itemSlug) {
+            serviceMapping[itemSlug] = item.name;
+          }
+        });
+      });
+
+      const matchedServiceName = serviceMapping[slug];
+      if (matchedServiceName) {
+        setValue("service", matchedServiceName);
+      }
     }
   }, [searchParams, setValue]);
 
@@ -184,7 +198,7 @@ Message: ${data.message || "No additional message"}`;
                 {NAV_ITEMS.map((category) => (
                   <optgroup key={category.title} label={category.title}>
                     {category.items.map((item) => (
-                      <option key={item.name} value={item.href.split('/').pop()}>
+                      <option key={item.name} value={item.name}>
                         {item.name}
                       </option>
                     ))}

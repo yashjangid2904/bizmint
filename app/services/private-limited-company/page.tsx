@@ -134,7 +134,7 @@ const ServicePage = () => {
               Get started with our expert advisory today and build your legacy.
             </p>
             <Link
-              href="/contact"
+              href="/contact?service=private-limited-company"
               className="mt-10 inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 text-lg font-bold text-zinc-900 transition-all hover:bg-zinc-100 active:scale-95"
             >
               Start Registration

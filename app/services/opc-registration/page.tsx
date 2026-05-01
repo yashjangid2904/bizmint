@@ -133,10 +133,10 @@ const OPCPage = () => {
               Transform your sole proprietorship into a professional OPC today.
             </p>
             <Link
-              href="/contact"
+              href="/contact?service=opc-registration"
               className="mt-10 inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 text-lg font-bold text-zinc-900 transition-all hover:bg-zinc-100 active:scale-95"
             >
-              Register Your OPC
+              Start Registration
               <ArrowRight size={20} />
             </Link>
           </div>

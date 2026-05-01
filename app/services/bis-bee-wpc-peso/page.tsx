@@ -134,10 +134,10 @@ const RegulatoryLicensesPage = () => {
               Get a free consultation on the mandatory standards for your product category.
             </p>
             <Link
-              href="/contact"
+              href="/contact?service=bis-bee-wpc-peso"
               className="mt-10 inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 text-lg font-bold text-zinc-900 transition-all hover:bg-zinc-100 active:scale-95"
             >
-              Talk to an Expert
+              Start Registration
               <ArrowRight size={20} />
             </Link>
           </div>

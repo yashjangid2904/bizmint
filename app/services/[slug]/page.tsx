@@ -168,8 +168,8 @@ const ServiceCategoryPage = () => {
               className="mt-10 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
             >
               <Link
-                href="/contact"
-                className="rounded-2xl bg-zinc-900 px-8 py-4 text-lg font-bold text-white transition-all hover:bg-black active:scale-95 dark:bg-white dark:text-black"
+                href={`/contact?service=${data.title}`}
+                className="rounded-2xl bg-zinc-900 px-8 py-4 text-lg font-bold text-white transition-all hover:bg-black active:scale-95 dark:bg-white dark:text-black text-center"
               >
                 Get Started
               </Link>
@@ -214,7 +214,7 @@ const ServiceCategoryPage = () => {
                 {service.desc}
               </p>
               <Link 
-                href="/contact"
+                href={`/contact?service=${service.name.toLowerCase().replace(/\s+/g, '-').replace(/[()]/g, '')}`}
                 className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest text-blue-600 hover:text-blue-700"
               >
                 Learn More

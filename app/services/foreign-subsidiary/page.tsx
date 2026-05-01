@@ -133,10 +133,10 @@ const ForeignSubsidiaryPage = () => {
               Expert guidance for global corporations looking to establish and thrive in India.
             </p>
             <Link
-              href="/contact"
+              href="/contact?service=foreign-subsidiary"
               className="mt-10 inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 text-lg font-bold text-zinc-900 transition-all hover:bg-zinc-100 active:scale-95"
             >
-              Consult an Expert
+              Start Registration
               <ArrowRight size={20} />
             </Link>
           </div>
