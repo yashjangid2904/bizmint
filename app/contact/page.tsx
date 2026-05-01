@@ -78,7 +78,7 @@ Message: ${data.message || "No additional message"}`;
 
       // 2. Generate WhatsApp URL
       // NOTE: Replace 919876543210 with your actual business WhatsApp number (Include 91, no + sign)
-      const businessWhatsApp = "91";
+      const businessWhatsApp = "919810750144";
       const whatsappUrl = `https://wa.me/${businessWhatsApp}?text=${encodeURIComponent(whatsappMessage)}`;
 
       // 3. Redirect user to WhatsApp
