@@ -9,6 +9,9 @@ import {
   ShieldCheck, 
   Wallet, 
   Users,
+  Globe,
+  Target,
+  Zap,
   ArrowRight,
   ChevronRight
 } from "lucide-react";
@@ -82,22 +85,46 @@ const categories: ServiceCategory[] = [
     color: "#ef4444",
     href: "/services/nbfc-finance",
     services: [
-      "NBFC Setup & Acquisition",
-      "Ongoing NBFC Compliance",
-      "P2P Lending License",
-      "CIC / Credit Bureau Services"
+      { name: "NBFC Setup & Acquisition", href: "/services/nbfc-setup" },
+      { name: "Ongoing NBFC Compliance", href: "/services/nbfc-compliance" },
+      { name: "P2P Lending License", href: "/services/p2p-license" },
+      { name: "RBI Statutory Services", href: "/services/rbi-services" }
+    ]
+  },
+  {
+    title: "International",
+    icon: Globe,
+    color: "#06b6d4",
+    href: "/services/international",
+    services: [
+      { name: "FDI / FEMA Advisory", href: "/services/fdi-fema" },
+      { name: "FC-GPR / FC-TRS Reporting", href: "/services/fc-gpr" },
+      { name: "Annual FLA Return", href: "/services/fla-return" },
+      { name: "Foreign Subsidiary Setup", href: "/services/foreign-subsidiary" }
     ]
   },
   {
     title: "Investor Services",
-    icon: Users,
+    icon: Target,
     color: "#6366f1",
     href: "/services/investor-services",
     services: [
-      "IEPF Claim Recovery",
-      "Duplicate Share Certificates",
-      "Share Transmission",
-      "Mutual Fund Advisory"
+      { name: "IEPF Claim Recovery", href: "/services/iepf-claim" },
+      { name: "Duplicate Share Certificates", href: "/services/duplicate-shares" },
+      { name: "Share Transmission", href: "/services/share-transmission" },
+      { name: "Mutual Fund Redemption", href: "/services/mutual-fund-redemption" }
+    ]
+  },
+  {
+    title: "Registrations",
+    icon: Zap,
+    color: "#ec4899",
+    href: "/services/registrations",
+    services: [
+      { name: "Digital Signature (DSC)", href: "/services/dsc" },
+      { name: "IEC Registration", href: "/services/iec-registration" },
+      { name: "MSME Registration", href: "/services/msme-registration" },
+      { name: "Startup India Recognition", href: "/services/startup-india" }
     ]
   }
 ];

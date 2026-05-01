@@ -20,6 +20,7 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useSearchParams } from "next/navigation";
+import { NAV_ITEMS } from "@/components/navbar/nav-data";
 
 type FormData = {
   fullName: string;
@@ -146,14 +147,15 @@ const ContactForm = () => {
                 className="w-full appearance-none rounded-2xl border border-zinc-200 bg-zinc-50 py-4 pl-12 pr-4 text-zinc-900 outline-none transition-all focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-50"
               >
                 <option value="">Select a service</option>
-                <option value="private-limited-company">Private Limited Company</option>
-                <option value="llp-registration">LLP Registration</option>
-                <option value="opc-registration">OPC Registration</option>
-                <option value="foreign-subsidiary">Foreign Subsidiary</option>
-                <option value="gst-filing">GST Filing</option>
-                <option value="income-tax">Income Tax Filing</option>
-                <option value="nbfc-license">NBFC License</option>
-                <option value="sebi-license">SEBI License</option>
+                {NAV_ITEMS.map((category) => (
+                  <optgroup key={category.title} label={category.title}>
+                    {category.items.map((item) => (
+                      <option key={item.name} value={item.href.split('/').pop()}>
+                        {item.name}
+                      </option>
+                    ))}
+                  </optgroup>
+                ))}
               </select>
             </div>
           </div>

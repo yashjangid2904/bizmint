@@ -82,15 +82,15 @@ export const NAV_ITEMS: NavItem[] = [
       { name: "IEPF Claim", href: "/services/iepf-claim", icon: Target },
       { name: "Duplicate Shares", href: "/services/duplicate-shares", icon: FileCheck },
       { name: "Share Transmission", href: "/services/share-transmission", icon: Users },
-      { name: "Mutual Fund Redemption", href: "/services/mutual-fund", icon: TrendingUp },
+      { name: "Mutual Fund Redemption", href: "/services/mutual-fund-redemption", icon: TrendingUp },
     ],
   },
   {
     title: "Registrations",
     items: [
       { name: "Digital Signature (DSC)", href: "/services/dsc", icon: PenTool },
-      { name: "IEC Registration", href: "/services/iec", icon: Globe },
-      { name: "MSME Registration", href: "/services/msme", icon: Briefcase },
+      { name: "IEC Registration", href: "/services/iec-registration", icon: Globe },
+      { name: "MSME Registration", href: "/services/msme-registration", icon: Briefcase },
       { name: "Startup India", href: "/services/startup-india", icon: Zap },
     ],
   },
