@@ -73,7 +73,7 @@ Topic: ${topic}
 Date: ${selectedDay}
 Time: ${selectedTime}`;
 
-      const businessWhatsApp = "917737863869";
+      const businessWhatsApp = "919810750144";
       const whatsappUrl = `https://wa.me/${businessWhatsApp}?text=${encodeURIComponent(whatsappMessage)}`;
 
       window.open(whatsappUrl, "_blank");
