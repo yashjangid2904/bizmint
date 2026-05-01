@@ -12,28 +12,28 @@ const Footer = () => {
     {
       title: "Product",
       links: [
-        { name: "Features", href: "#" },
-        { name: "Pricing", href: "#" },
-        { name: "Integrations", href: "#" },
-        { name: "Changelog", href: "#" },
+        { name: "Features", href: "/features" },
+        { name: "Pricing", href: "/pricing" },
+        { name: "Integrations", href: "/integrations" },
+        { name: "Changelog", href: "/changelog" },
       ],
     },
     {
       title: "Resources",
       links: [
-        { name: "Documentation", href: "#" },
-        { name: "Tutorials", href: "#" },
-        { name: "Blog", href: "#" },
-        { name: "Support", href: "#" },
+        { name: "Documentation", href: "/docs" },
+        { name: "Tutorials", href: "/tutorials" },
+        { name: "Blog", href: "/blog" },
+        { name: "Support", href: "/support" },
       ],
     },
     {
       title: "Company",
       links: [
         { name: "About", href: "/about" },
-        { name: "Careers", href: "#" },
+        { name: "Careers", href: "/careers" },
         { name: "Contact", href: "/contact" },
-        { name: "Partners", href: "#" },
+        { name: "Partners", href: "/partners" },
       ],
     },
   ];
