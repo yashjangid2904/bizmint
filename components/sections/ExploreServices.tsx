@@ -223,23 +223,20 @@ const ExploreServices = () => {
 
         {/* Footer CTA */}
         <motion.div 
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-20 flex flex-col items-center gap-6 rounded-[2.5rem] bg-zinc-900 p-10 text-center dark:bg-zinc-900/50 dark:backdrop-blur-xl"
+          className="mt-20 flex flex-col items-center justify-center gap-6 sm:flex-row"
         >
-          <h3 className="text-2xl font-bold text-white">Can't find what you're looking for?</h3>
-          <p className="max-w-xl text-zinc-400">
-            Our advisory team handles over 100+ specialized regulatory and financial services. 
-            Talk to us for a custom solution.
+          <p className="text-zinc-600 dark:text-zinc-400 font-medium text-center sm:text-left">
+            Need a custom solution for your business?
           </p>
           <Link
             href="/contact"
-            className="group flex items-center gap-2 rounded-full bg-white px-8 py-4 text-lg font-bold text-zinc-900 transition-all hover:bg-zinc-100 active:scale-95"
+            className="group flex items-center gap-2 rounded-2xl bg-zinc-900 px-8 py-4 font-bold text-white transition-all hover:bg-black active:scale-95 dark:bg-white dark:text-black w-full sm:w-auto justify-center"
           >
-            Request Custom Advisory
-            <ArrowRight size={20} className="transition-transform group-hover:translate-x-1" />
+            Request a Proposal
+            <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
           </Link>
         </motion.div>
       </div>

@@ -120,36 +120,36 @@ const ServiceCategoryPage = () => {
   const Icon = data.icon;
 
   return (
-    <div className="relative min-h-screen bg-white pt-32 pb-20 dark:bg-[#030014]">
+    <div className="relative min-h-screen bg-white pt-24 sm:pt-32 pb-12 sm:pb-20 dark:bg-[#030014]">
       {/* Background Decor */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_50%_-20%,#3b82f610_0%,transparent_50%)]" />
       </div>
-
+ 
       <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
         {/* Breadcrumbs */}
         <Link 
           href="/services"
-          className="group inline-flex items-center gap-2 text-sm font-semibold text-zinc-500 hover:text-blue-600 transition-colors mb-12"
+          className="group inline-flex items-center gap-2 text-sm font-semibold text-zinc-500 hover:text-blue-600 transition-colors mb-8 sm:mb-12"
         >
           <ArrowLeft size={16} className="transition-transform group-hover:-translate-x-1" />
           Back to All Services
         </Link>
-
+ 
         {/* Hero Area */}
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center mb-24">
-          <div>
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:items-center mb-16 sm:mb-24">
+          <div className="text-center lg:text-left">
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              className={`inline-flex h-16 w-16 items-center justify-center rounded-[2rem] bg-${data.color}-50 text-${data.color}-600 dark:bg-${data.color}-900/30 dark:text-${data.color}-400 mb-8`}
+              className={`inline-flex h-12 w-12 sm:h-16 sm:w-16 items-center justify-center rounded-[1.5rem] sm:rounded-[2rem] bg-${data.color}-50 text-${data.color}-600 dark:bg-${data.color}-900/30 dark:text-${data.color}-400 mb-6 sm:mb-8`}
             >
-              <Icon size={32} />
+              <Icon size={28} className="sm:w-8 sm:h-8" />
             </motion.div>
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="font-outfit text-4xl font-black tracking-tight text-zinc-900 dark:text-white sm:text-6xl"
+              className="font-outfit text-3xl font-black tracking-tight text-zinc-900 dark:text-white sm:text-5xl lg:text-6xl"
             >
               {data.title}
             </motion.h1>
@@ -157,7 +157,7 @@ const ServiceCategoryPage = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="mt-6 text-xl text-zinc-600 dark:text-zinc-400 leading-relaxed"
+              className="mt-6 text-lg sm:text-xl text-zinc-600 dark:text-zinc-400 leading-relaxed"
             >
               {data.description}
             </motion.p>
@@ -165,7 +165,7 @@ const ServiceCategoryPage = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="mt-10 flex gap-4"
+              className="mt-10 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
             >
               <Link
                 href="/contact"

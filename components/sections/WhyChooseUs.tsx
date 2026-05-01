@@ -54,21 +54,21 @@ const WhyChooseUs = () => {
       </div>
 
       <div className="container relative z-10 mx-auto px-6 lg:px-8">
-        <div className="mb-12 text-center">
-          <h2 className="font-outfit text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-4xl lg:text-5xl">
-            Why Forward-Thinking Businesses <br />
+        <div className="mb-12 text-center px-4">
+          <h2 className="font-outfit text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-4xl lg:text-5xl leading-tight">
+            Why Forward-Thinking Businesses <br className="hidden sm:block" />
             <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
               Trust Bizmint
             </span>
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-base text-zinc-600 dark:text-zinc-400 sm:text-lg">
+          <p className="mx-auto mt-6 max-w-2xl text-base text-zinc-600 dark:text-zinc-400 sm:text-lg">
             We combine deep regulatory expertise with modern technology to deliver
             a seamless compliance experience for modern enterprises.
           </p>
         </div>
 
         {/* Circular Gallery (Desktop) / Grid (Mobile) */}
-        <div className="relative flex min-h-[450px] items-center justify-center lg:min-h-[650px]">
+        <div className="relative flex flex-col lg:flex-row min-h-[450px] items-center justify-center lg:min-h-[650px] gap-12">
 
           {/* Central Core */}
           <motion.div
@@ -133,7 +133,7 @@ const WhyChooseUs = () => {
           </div>
 
           {/* Mobile Grid Fallback */}
-          <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:hidden">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:hidden w-full px-4">
             {features.map((feature, i) => (
               <motion.div
                 key={i}

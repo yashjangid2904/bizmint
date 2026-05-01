@@ -288,21 +288,21 @@ const TrustPanel = () => {
 
 const ContactPage = () => {
   return (
-    <main className="min-h-screen bg-white pt-32 pb-20 dark:bg-[#030014]">
+    <main className="min-h-screen bg-white pt-24 sm:pt-32 pb-12 sm:pb-20 dark:bg-[#030014]">
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-[radial-gradient(circle_at_50%_0%,#3b82f610_0%,transparent_70%)]" />
       </div>
 
-      <div className="container relative z-10 mx-auto max-w-6xl px-6">
-        <div className="mb-16 text-center lg:text-left">
+      <div className="container relative z-10 mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="mb-10 sm:mb-16 text-center lg:text-left">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            <h1 className="font-outfit text-5xl font-black tracking-tight text-zinc-900 dark:text-white sm:text-6xl">
+            <h1 className="font-outfit text-4xl font-black tracking-tight text-zinc-900 dark:text-white sm:text-6xl">
               Talk to an <span className="text-blue-600">Expert</span>
             </h1>
-            <p className="mt-6 text-xl font-medium text-zinc-600 dark:text-zinc-400">
+            <p className="mt-4 sm:mt-6 text-lg sm:text-xl font-medium text-zinc-600 dark:text-zinc-400">
               Our experts usually respond within <span className="text-blue-600 dark:text-blue-400">30 minutes</span>
             </p>
           </motion.div>

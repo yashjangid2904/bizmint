@@ -59,14 +59,13 @@ const Navbar = () => {
           : "bg-transparent py-5"
       )}
     >
-      <div className="flex w-full items-center justify-between px-6 lg:px-12">
+      <div className="flex w-full items-center justify-between px-4 sm:px-6 lg:px-12">
         {/* Logo */}
-        {/* Logo */}
-        <Link href="/" className="group flex items-center gap-2.5">
+        <Link href="/" className="group flex items-center gap-2">
           <img 
             src="/logo.png" 
             alt="Bizmint Logo" 
-            className="h-10 w-auto object-contain transition-transform group-hover:scale-105 active:scale-95" 
+            className="h-8 sm:h-10 w-auto object-contain transition-transform group-hover:scale-105 active:scale-95" 
           />
         </Link>
 

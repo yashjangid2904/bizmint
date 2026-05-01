@@ -125,7 +125,7 @@ const OrbitingIcon = ({ service, index }: { service: Service; index: number }) =
 
 const ServiceOrbit = () => {
   return (
-    <div className="relative flex h-[450px] w-[450px] items-center justify-center sm:h-[550px] sm:w-[550px] lg:h-[650px] lg:w-[650px]">
+    <div className="relative flex scale-75 sm:scale-90 lg:scale-100 items-center justify-center h-[450px] w-[450px] sm:h-[550px] sm:w-[550px] lg:h-[650px] lg:w-[650px]">
       {/* Central Core */}
       <motion.div
         initial={{ scale: 0.8, opacity: 0 }}

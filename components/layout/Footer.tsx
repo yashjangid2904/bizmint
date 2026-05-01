@@ -45,7 +45,7 @@ const Footer = () => {
         <div className="rounded-[2.5rem] border border-zinc-200 bg-white p-5 shadow-sm dark:border-zinc-800 dark:bg-zinc-950 lg:p-8">
           <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
             {/* Left Side: Brand & Address */}
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col items-center sm:items-start gap-4 text-center sm:text-left">
               <div className="flex items-center gap-2">
                 <img src="/logo.png" alt="Bizmint Logo" className="h-10 w-auto object-contain" />
               </div>
@@ -70,18 +70,18 @@ const Footer = () => {
             {/* Right Side: Links Grid */}
             <div className="grid grid-cols-2 gap-8 sm:grid-cols-3">
               {footerSections.map((section) => (
-                <div key={section.title}>
-                  <h3 className="mb-3 text-sm font-bold text-zinc-900 dark:text-zinc-50">
+                <div key={section.title} className="text-center sm:text-left">
+                  <h3 className="mb-4 text-sm font-bold text-zinc-900 dark:text-zinc-50">
                     {section.title}
                   </h3>
-                  <ul className="flex flex-col gap-2">
+                  <ul className="flex flex-col gap-3">
                     {section.links.map((link) => (
                       <li key={link.name}>
                         <Link
                           href={link.href}
                           className="text-sm text-zinc-500 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50"
                         >
-                          {section.title === "Legal" ? "• " : ""}{link.name}
+                          {link.name}
                         </Link>
                       </li>
                     ))}
@@ -92,12 +92,12 @@ const Footer = () => {
           </div>
 
           {/* Bottom Bar */}
-          <div className="mt-6 flex flex-col items-center justify-between gap-4 border-t border-zinc-100 pt-5 dark:border-zinc-900 lg:flex-row">
-            <p className="text-xs text-zinc-400">
+          <div className="mt-8 flex flex-col items-center justify-between gap-6 border-t border-zinc-100 pt-6 dark:border-zinc-900 lg:flex-row">
+            <p className="text-xs font-medium text-zinc-400">
               © {currentYear} Bizmint. All rights reserved.
             </p>
 
-            <div className="flex items-center gap-8">
+            <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
               {[
                 { name: "Privacy Policy", href: "/privacy" },
                 { name: "Terms of Service", href: "/terms" },
@@ -106,7 +106,7 @@ const Footer = () => {
                 <Link
                   key={link.name}
                   href={link.href}
-                  className="text-xs text-zinc-400 underline decoration-zinc-200 underline-offset-4 transition-colors hover:text-zinc-900 hover:decoration-zinc-900 dark:decoration-zinc-800 dark:hover:text-zinc-50 dark:hover:decoration-zinc-50"
+                  className="text-xs font-medium text-zinc-400 underline decoration-zinc-200 underline-offset-4 transition-colors hover:text-zinc-900 hover:decoration-zinc-900 dark:decoration-zinc-800 dark:hover:text-zinc-50 dark:hover:decoration-zinc-50"
                 >
                   {link.name}
                 </Link>

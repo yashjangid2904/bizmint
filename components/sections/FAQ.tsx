@@ -88,7 +88,7 @@ const FAQ = () => {
           </div>
         </div>
 
-        <div className="relative mt-20 overflow-hidden rounded-[2.5rem] bg-zinc-900 px-8 py-12 text-white dark:bg-zinc-950 lg:p-16">
+        <div className="relative mt-20 overflow-hidden rounded-[2.5rem] bg-zinc-900 px-6 sm:px-8 py-12 text-white dark:bg-zinc-950 lg:p-16">
           {/* Abstract Background Elements */}
           <div className="absolute inset-0 z-0">
             <div className="absolute -top-[20%] -right-[10%] h-[150%] w-[50%] skew-x-12 bg-blue-600/10 blur-[100px]" />
@@ -97,30 +97,30 @@ const FAQ = () => {
             />
           </div>
 
-          <div className="relative z-10 grid grid-cols-1 gap-10 lg:grid-cols-2 lg:items-center">
-            <div>
+          <div className="relative z-10 grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center">
+            <div className="text-center lg:text-left">
               <h3 className="text-3xl font-bold leading-tight tracking-tight sm:text-4xl">
-                Still have questions? <br />
+                Still have questions? <br className="hidden sm:block" />
                 <span className="text-blue-400">Talk to our experts.</span>
               </h3>
             </div>
 
             <div className="flex flex-col gap-8">
-              <p className="text-lg text-zinc-400 leading-relaxed">
+              <p className="text-lg text-zinc-400 leading-relaxed text-center lg:text-left mx-auto lg:mx-0 max-w-xl">
                 Our team of seasoned professionals is ready to help you navigate the complexities
                 of regulatory compliance and business growth.
               </p>
-              <div className="flex flex-wrap items-center gap-6">
-                <Link href="/contact">
-                  <button className="group flex items-center gap-2 rounded-xl bg-white px-6 py-3.5 text-base font-bold text-zinc-950 transition-all hover:bg-zinc-100 active:scale-[0.98]">
+              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-6">
+                <Link href="/contact" className="w-full sm:w-auto">
+                  <button className="group flex w-full items-center justify-center gap-2 rounded-xl bg-white px-8 py-4 text-base font-bold text-zinc-950 transition-all hover:bg-zinc-100 active:scale-[0.98]">
                     Talk to an Expert
                     <div className="flex h-5 w-5 items-center justify-center rounded-full bg-zinc-900 text-white transition-transform group-hover:translate-x-0.5">
                       <Plus size={12} strokeWidth={3} />
                     </div>
                   </button>
                 </Link>
-                <Link href="/schedule-call">
-                  <button className="flex items-center gap-2 text-base font-semibold text-white transition-colors hover:text-blue-400">
+                <Link href="/schedule-call" className="w-full sm:w-auto">
+                  <button className="flex w-full items-center justify-center gap-3 text-base font-semibold text-white transition-colors hover:text-blue-400">
                     <div className="flex h-10 w-10 items-center justify-center rounded-full border border-zinc-700 bg-zinc-800/50">
                       <div className="ml-0.5 h-0 w-0 border-y-[6px] border-l-[10px] border-y-transparent border-l-white" />
                     </div>
