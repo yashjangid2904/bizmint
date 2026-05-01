@@ -53,12 +53,7 @@ const Footer = () => {
             {/* Left Side: Brand & Socials */}
             <div className="flex flex-col gap-8">
               <div className="flex items-center gap-2">
-                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-zinc-900 text-white dark:bg-zinc-50 dark:text-black">
-                  <Shield size={18} fill="currentColor" fillOpacity={0.2} />
-                </div>
-                <span className="text-xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
-                  Bizmint
-                </span>
+                <img src="/logo.png" alt="Bizmint Logo" className="h-10 w-auto object-contain" />
               </div>
               
               <p className="max-w-xs text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">

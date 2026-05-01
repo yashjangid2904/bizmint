@@ -3,13 +3,13 @@
 import React, { useState, useEffect, Suspense } from "react";
 import { useForm } from "react-hook-form";
 import { motion, AnimatePresence } from "framer-motion";
-import { 
-  CheckCircle2, 
-  Send, 
-  User, 
-  Mail, 
-  Phone, 
-  Briefcase, 
+import {
+  CheckCircle2,
+  Send,
+  User,
+  Mail,
+  Phone,
+  Briefcase,
   MessageSquare,
   ArrowRight,
   ShieldCheck,
@@ -34,7 +34,7 @@ const ContactForm = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const searchParams = useSearchParams();
-  
+
   const {
     register,
     handleSubmit,
@@ -52,12 +52,46 @@ const ContactForm = () => {
 
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    console.log("Form Data:", data);
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    reset();
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to submit request");
+      }
+
+      console.log("Contact successfully submitted to backend!");
+
+      // 1. Format the WhatsApp message
+      const whatsappMessage = `*New Expert Consultation Request*
+Name: ${data.fullName}
+Email: ${data.email}
+Phone: ${data.phone}
+Service: ${data.service}
+Message: ${data.message || "No additional message"}`;
+
+      // 2. Generate WhatsApp URL
+      // NOTE: Replace 919876543210 with your actual business WhatsApp number (Include 91, no + sign)
+      const businessWhatsApp = "91";
+      const whatsappUrl = `https://wa.me/${businessWhatsApp}?text=${encodeURIComponent(whatsappMessage)}`;
+
+      // 3. Redirect user to WhatsApp
+      window.open(whatsappUrl, "_blank");
+
+      setIsSubmitted(true);
+      reset();
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("Something went wrong. Please try again later.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (isSubmitted) {
@@ -95,7 +129,7 @@ const ContactForm = () => {
               <User className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-zinc-400 group-focus-within:text-blue-600 transition-colors" />
               <input
                 {...register("fullName", { required: "Name is required" })}
-                placeholder="John Doe"
+                placeholder="name"
                 className={cn(
                   "w-full rounded-2xl border border-zinc-200 bg-zinc-50 py-4 pl-12 pr-4 text-zinc-900 outline-none transition-all focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-50",
                   errors.fullName && "border-red-500 focus:border-red-500 focus:ring-red-500/10"
@@ -112,7 +146,7 @@ const ContactForm = () => {
               <input
                 type="email"
                 {...register("email", { required: "Email is required" })}
-                placeholder="john@bizmint.in"
+                placeholder="email"
                 className={cn(
                   "w-full rounded-2xl border border-zinc-200 bg-zinc-50 py-4 pl-12 pr-4 text-zinc-900 outline-none transition-all focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-50",
                   errors.email && "border-red-500 focus:border-red-500 focus:ring-red-500/10"
@@ -128,7 +162,7 @@ const ContactForm = () => {
               <Phone className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-zinc-400 group-focus-within:text-blue-600 transition-colors" />
               <input
                 {...register("phone", { required: "Phone is required" })}
-                placeholder="+91 98765 43210"
+                placeholder="+91"
                 className={cn(
                   "w-full rounded-2xl border border-zinc-200 bg-zinc-50 py-4 pl-12 pr-4 text-zinc-900 outline-none transition-all focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-50",
                   errors.phone && "border-red-500 focus:border-red-500 focus:ring-red-500/10"
