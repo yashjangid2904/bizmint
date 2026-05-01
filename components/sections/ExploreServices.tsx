@@ -14,10 +14,15 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 
+interface ServiceItem {
+  name: string;
+  href: string;
+}
+
 interface ServiceCategory {
   title: string;
   icon: any;
-  services: string[];
+  services: (string | ServiceItem)[];
   color: string;
   href: string;
 }
@@ -29,10 +34,10 @@ const categories: ServiceCategory[] = [
     color: "#3b82f6",
     href: "/services/start-business",
     services: [
-      "Private Limited Company",
-      "LLP Registration",
-      "OPC Registration",
-      "Foreign Subsidiary"
+      { name: "Private Limited Company", href: "/services/private-limited-company" },
+      { name: "LLP Registration", href: "/services/llp-registration" },
+      { name: "OPC Registration", href: "/services/opc-registration" },
+      { name: "Foreign Subsidiary", href: "/services/foreign-subsidiary" }
     ]
   },
   {
@@ -41,10 +46,10 @@ const categories: ServiceCategory[] = [
     color: "#10b981",
     href: "/services/tax-accounting",
     services: [
-      "GST Registration & Filing",
-      "ITR Filing (Business & Personal)",
-      "TDS Compliance",
-      "Bookkeeping & Financials"
+      { name: "GST Registration & Filing", href: "/services/gst-income-tax" },
+      { name: "Income Tax (ITR) Filing", href: "/services/gst-income-tax" },
+      { name: "TDS Compliance", href: "/services/gst-income-tax" },
+      { name: "Bookkeeping & Financials", href: "/services/annual-compliance" }
     ]
   },
   {
@@ -53,10 +58,10 @@ const categories: ServiceCategory[] = [
     color: "#f59e0b",
     href: "/services/licenses",
     services: [
-      "BIS / BEE / WPC Certifications",
-      "NBFC License (RBI)",
-      "SEBI License (AIF/IA)",
-      "Insurance License (IRDAI)"
+      { name: "BIS / BEE / WPC / PESO", href: "/services/bis-bee-wpc-peso" },
+      { name: "NBFC License (RBI)", href: "/services/nbfc-registration" },
+      { name: "SEBI License (AIF/IA)", href: "/services/sebi-license" },
+      { name: "Insurance License (IRDAI)", href: "/services/insurance-license" }
     ]
   },
   {
@@ -65,10 +70,10 @@ const categories: ServiceCategory[] = [
     color: "#8b5cf6",
     href: "/services/compliance",
     services: [
-      "ROC Filing & Annual Returns",
-      "Director KYC & DIN Services",
-      "FEMA / RBI Reporting",
-      "Secretarial Audit"
+      { name: "ROC Filing & Annual Returns", href: "/services/roc-filings" },
+      { name: "Director KYC (DIN)", href: "/services/din-kyc" },
+      { name: "Annual Compliance", href: "/services/annual-compliance" },
+      { name: "FEMA / RBI Reporting", href: "/services/fdi-fema" }
     ]
   },
   {
@@ -123,14 +128,26 @@ const CategoryCard = ({ category, index }: { category: ServiceCategory; index: n
       </div>
 
       <ul className="flex-1 space-y-3 mb-8">
-        {category.services.map((service, i) => (
-          <li key={i} className="flex items-start gap-2 text-sm text-zinc-600 dark:text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-zinc-200 transition-colors">
-            <div className="mt-1 flex h-3 w-3 shrink-0 items-center justify-center rounded-full bg-zinc-100 dark:bg-zinc-800">
-              <div className="h-1 w-1 rounded-full bg-zinc-400 dark:bg-zinc-600" />
-            </div>
-            {service}
-          </li>
-        ))}
+        {category.services.map((service, i) => {
+          const isObject = typeof service !== "string";
+          const name = isObject ? service.name : service;
+          const href = isObject ? service.href : "#";
+
+          return (
+            <li key={i} className="flex items-start gap-2 text-sm text-zinc-600 dark:text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-zinc-200 transition-colors">
+              <div className="mt-1 flex h-3 w-3 shrink-0 items-center justify-center rounded-full bg-zinc-100 dark:bg-zinc-800">
+                <div className="h-1 w-1 rounded-full bg-zinc-400 dark:bg-zinc-600" />
+              </div>
+              {isObject ? (
+                <Link href={href} className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                  {name}
+                </Link>
+              ) : (
+                <span>{name}</span>
+              )}
+            </li>
+          );
+        })}
       </ul>
 
       <Link 

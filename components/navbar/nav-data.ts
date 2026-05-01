@@ -1,106 +1,97 @@
 import { 
   Building2, 
-  FileCheck, 
-  ShieldCheck, 
-  Globe, 
-  TrendingUp, 
-  PenTool, 
-  Briefcase, 
-  PieChart, 
-  ClipboardCheck, 
-  Zap, 
   Scale, 
-  Users, 
-  LayoutGrid, 
-  Settings, 
-  Building,
+  Building, 
+  Globe, 
+  ShieldCheck, 
+  FileCheck, 
+  TrendingUp, 
   CreditCard,
+  ClipboardCheck,
+  LayoutGrid,
+  Users,
+  PieChart,
+  Zap,
+  Settings,
+  PenTool,
+  Briefcase,
   Target,
   type LucideIcon
 } from "lucide-react";
 
 export interface NavSubItem {
-  title: string;
+  name: string;
   href: string;
-  description?: string;
   icon?: LucideIcon;
 }
 
 export interface NavItem {
   title: string;
-  href?: string;
-  items?: NavSubItem[];
-  isMega?: boolean;
+  items: NavSubItem[];
 }
 
-export const navItems: NavItem[] = [
-  // { title: "Home", href: "/" },
+export const NAV_ITEMS: NavItem[] = [
   {
     title: "Start Business",
     items: [
-      { title: "Private Limited Company", href: "/start/private-limited", icon: Building2, description: "Most popular for startups" },
-      { title: "LLP Registration", href: "/start/llp", icon: Scale, description: "Limited Liability Partnership" },
-      { title: "OPC Registration", href: "/start/opc", icon: Building, description: "One Person Company" },
-      { title: "Foreign Subsidiary", href: "/start/foreign-subsidiary", icon: Globe, description: "Expand to India" },
+      { name: "Private Limited Company", href: "/services/private-limited-company", icon: Building2 },
+      { name: "LLP Registration", href: "/services/llp-registration", icon: Scale },
+      { name: "OPC Registration", href: "/services/opc-registration", icon: Building },
+      { name: "Foreign Subsidiary", href: "/services/foreign-subsidiary", icon: Globe },
     ],
   },
   {
     title: "Licenses",
-    isMega: true,
     items: [
-      { title: "BIS / BEE / WPC / PESO", href: "/licenses/regulatory", icon: ShieldCheck, description: "Product & safety certifications" },
-      { title: "Insurance Licenses", href: "/licenses/insurance", icon: FileCheck, description: "IRDAI compliance" },
-      { title: "SEBI Licenses", href: "/licenses/sebi", icon: TrendingUp, description: "AIF, Investment Adviser, Research Analyst" },
-      { title: "NBFC Registration", href: "/licenses/nbfc", icon: CreditCard, description: "Non-Banking Financial Company" },
+      { name: "BIS / BEE / WPC / PESO", href: "/services/bis-bee-wpc-peso", icon: ShieldCheck },
+      { name: "Insurance Licenses", href: "/services/insurance-license", icon: FileCheck },
+      { name: "SEBI Licenses", href: "/services/sebi-license", icon: TrendingUp },
+      { name: "NBFC Registration", href: "/services/nbfc-registration", icon: CreditCard },
     ],
   },
   {
     title: "Compliance",
-    isMega: true,
     items: [
-      { title: "ROC Filings", href: "/compliance/roc", icon: ClipboardCheck, description: "Annual returns & forms" },
-      { title: "Annual Compliance", href: "/compliance/annual", icon: LayoutGrid, description: "Keep your business compliant" },
-      { title: "DIN KYC", href: "/compliance/din-kyc", icon: Users, description: "Director identification" },
-      { title: "GST / Income Tax", href: "/compliance/tax", icon: PieChart, description: "Taxation services" },
-      { title: "RBI / FEMA Filings", href: "/compliance/rbi", icon: Globe, description: "Foreign exchange compliance" },
+      { name: "ROC Filings", href: "/services/roc-filings", icon: ClipboardCheck },
+      { name: "Annual Compliance", href: "/services/annual-compliance", icon: LayoutGrid },
+      { name: "DIN KYC", href: "/services/din-kyc", icon: Users },
+      { name: "GST / Income Tax", href: "/services/gst-income-tax", icon: PieChart },
     ],
   },
   {
     title: "NBFC & Finance",
     items: [
-      { title: "NBFC Setup", href: "/finance/nbfc-setup", icon: Building2 },
-      { title: "NBFC Compliance", href: "/finance/nbfc-compliance", icon: ShieldCheck },
-      { title: "P2P License", href: "/finance/p2p-license", icon: Zap },
-      { title: "CIC / CIMS / RBI Services", href: "/finance/rbi-services", icon: Settings },
+      { name: "NBFC Setup", href: "/services/nbfc-setup", icon: Building2 },
+      { name: "NBFC Compliance", href: "/services/nbfc-compliance", icon: ShieldCheck },
+      { name: "P2P License", href: "/services/p2p-license", icon: Zap },
+      { name: "RBI Services", href: "/services/rbi-services", icon: Settings },
     ],
   },
   {
     title: "International",
     items: [
-      { title: "FDI / FEMA", href: "/intl/fdi", icon: Globe },
-      { title: "FC-GPR / FC-TRS", href: "/intl/fc-gpr", icon: FileCheck },
-      { title: "FLA Return", href: "/intl/fla", icon: ClipboardCheck },
-      { title: "Foreign Subsidiary", href: "/intl/subsidiary", icon: Building },
+      { name: "FDI / FEMA", href: "/services/fdi-fema", icon: Globe },
+      { name: "FC-GPR / FC-TRS", href: "/services/fc-gpr", icon: FileCheck },
+      { name: "FLA Return", href: "/services/fla-return", icon: ClipboardCheck },
+      { name: "Foreign Subsidiary", href: "/services/foreign-subsidiary", icon: Building },
     ],
   },
   {
     title: "Investor Services",
-    isMega: true,
     items: [
-      { title: "IEPF Claim", href: "/investor/iepf", icon: Target, description: "Recover lost dividends/shares" },
-      { title: "Duplicate Shares", href: "/investor/duplicate", icon: FileCheck, description: "Issue of new certificates" },
-      { title: "Share Transmission", href: "/investor/transmission", icon: Users, description: "Transfer of ownership" },
-      { title: "Mutual Fund Redemption", href: "/investor/mf", icon: TrendingUp, description: "Unclaimed MF units" },
-      { title: "AIF / Advisory", href: "/investor/advisory", icon: PieChart, description: "SEBI related services" },
+      { name: "IEPF Claim", href: "/services/iepf-claim", icon: Target },
+      { name: "Duplicate Shares", href: "/services/duplicate-shares", icon: FileCheck },
+      { name: "Share Transmission", href: "/services/share-transmission", icon: Users },
+      { name: "Mutual Fund Redemption", href: "/services/mutual-fund", icon: TrendingUp },
     ],
   },
   {
     title: "Registrations",
     items: [
-      { title: "Digital Signature (DSC)", href: "/reg/dsc", icon: PenTool },
-      { title: "IEC", href: "/reg/iec", icon: Globe },
-      { title: "MSME", href: "/reg/msme", icon: Briefcase },
-      { title: "Startup India", href: "/reg/startup", icon: Zap },
+      { name: "Digital Signature (DSC)", href: "/services/dsc", icon: PenTool },
+      { name: "IEC Registration", href: "/services/iec", icon: Globe },
+      { name: "MSME Registration", href: "/services/msme", icon: Briefcase },
+      { name: "Startup India", href: "/services/startup-india", icon: Zap },
     ],
   },
 ];
