@@ -2,8 +2,8 @@
 
 import React from "react";
 import Link from "next/link";
-import { Shield } from "lucide-react";
-import { Facebook, Instagram, Linkedin, X, Github } from "@/components/ui/BrandIcons";
+import { MapPin } from "lucide-react";
+
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -38,44 +38,32 @@ const Footer = () => {
     },
   ];
 
-  const socialLinks = [
-    { icon: X, href: "#" },
-    { icon: Instagram, href: "#" },
-    { icon: Linkedin, href: "#" },
-    { icon: Github, href: "#" },
-  ];
 
   return (
-    <footer className="bg-zinc-50 pt-4 pb-8 dark:bg-black">
+    <footer className="bg-zinc-50 pt-3 pb-4 dark:bg-black">
       <div className="mx-auto max-w-[1440px] px-6">
-        <div className="rounded-[2.5rem] border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-950 lg:p-10">
-          <div className="grid grid-cols-1 gap-10 lg:grid-cols-2">
-            {/* Left Side: Brand & Socials */}
-            <div className="flex flex-col gap-8">
+        <div className="rounded-[2.5rem] border border-zinc-200 bg-white p-5 shadow-sm dark:border-zinc-800 dark:bg-zinc-950 lg:p-8">
+          <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+            {/* Left Side: Brand & Address */}
+            <div className="flex flex-col gap-4">
               <div className="flex items-center gap-2">
-                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-zinc-900 text-white dark:bg-zinc-50 dark:text-black">
-                  <Shield size={18} fill="currentColor" fillOpacity={0.2} />
-                </div>
-                <span className="text-xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
-                  Bizmint
-                </span>
+                <img src="/logo.png" alt="Bizmint Logo" className="h-10 w-auto object-contain" />
               </div>
-              
+
               <p className="max-w-xs text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">
-                Bizmint empowers businesses to navigate the complex landscape of compliance, 
+                Bizmint empowers businesses to navigate the complex landscape of compliance,
                 regulatory filings, and financial advisory with ease.
               </p>
 
-              <div className="flex items-center gap-5">
-                {socialLinks.map((social, i) => (
-                  <Link
-                    key={i}
-                    href={social.href}
-                    className="text-zinc-400 transition-colors hover:text-zinc-900 dark:hover:text-zinc-50"
-                  >
-                    <social.icon size={20} strokeWidth={1.5} />
-                  </Link>
-                ))}
+
+              {/* Address */}
+              <div className="flex items-start gap-3">
+                <MapPin size={16} className="mt-0.5 shrink-0 text-blue-500" />
+                <p className="text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">
+                  Maicha, Greater Noida,<br />
+                  Gautam Budh Nagar,<br />
+                  Uttar Pradesh – 201310, India
+                </p>
               </div>
             </div>
 
@@ -104,11 +92,11 @@ const Footer = () => {
           </div>
 
           {/* Bottom Bar */}
-          <div className="mt-10 flex flex-col items-center justify-between gap-6 border-t border-zinc-100 pt-8 dark:border-zinc-900 lg:flex-row">
+          <div className="mt-6 flex flex-col items-center justify-between gap-4 border-t border-zinc-100 pt-5 dark:border-zinc-900 lg:flex-row">
             <p className="text-xs text-zinc-400">
               © {currentYear} Bizmint. All rights reserved.
             </p>
-            
+
             <div className="flex items-center gap-8">
               {[
                 { name: "Privacy Policy", href: "/privacy" },

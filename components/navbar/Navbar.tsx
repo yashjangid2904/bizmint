@@ -61,18 +61,13 @@ const Navbar = () => {
     >
       <div className="flex w-full items-center justify-between px-6 lg:px-12">
         {/* Logo */}
+        {/* Logo */}
         <Link href="/" className="group flex items-center gap-2.5">
-          <div className="relative">
-            <div className="absolute -inset-1 rounded-xl bg-blue-500/20 blur-sm transition-all group-hover:bg-blue-500/40" />
-            <div className="relative flex h-10 w-10 items-center justify-center rounded-xl bg-linear-to-br from-blue-600 to-indigo-600 text-white shadow-lg transition-transform group-hover:scale-105 active:scale-95">
-              <Shield size={22} fill="currentColor" fillOpacity={0.2} />
-            </div>
-          </div>
-          <div className="flex flex-col">
-            <span className="font-sans text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
-              Bizmint
-            </span>
-          </div>
+          <img 
+            src="/logo.png" 
+            alt="Bizmint Logo" 
+            className="h-10 w-auto object-contain transition-transform group-hover:scale-105 active:scale-95" 
+          />
         </Link>
 
         {/* Desktop Navigation */}

@@ -117,7 +117,7 @@ export default function Home() {
             </div>
  
             {/* Right Visual (Interactive Orbit) */}
-            <div className="relative flex items-center justify-center lg:justify-end">
+            <div className="relative flex items-center justify-center lg:justify-end lg:translate-x-20 xl:translate-x-32">
               <motion.div
                 initial={{ opacity: 0, scale: 0.8, filter: 'blur(20px)' }}
                 animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
@@ -242,7 +242,6 @@ export default function Home() {
           </motion.div>
         </motion.div>
       </section>
- 
  
       <Process />
       <WhyChooseUs />
