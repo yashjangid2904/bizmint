@@ -77,7 +77,9 @@ const ContactForm = () => {
       });
 
       if (!response.ok) {
-        throw new Error("Failed to submit request");
+        const errorData = await response.json().catch(() => ({}));
+        console.error("Server Error Details:", errorData);
+        throw new Error(errorData.details || errorData.error || "Failed to submit request");
       }
 
       console.log("Contact successfully submitted to backend!");
@@ -96,7 +98,7 @@ Message: ${data.message || "No additional message"}`;
       const whatsappUrl = `https://wa.me/${businessWhatsApp}?text=${encodeURIComponent(whatsappMessage)}`;
 
       // 3. Redirect user to WhatsApp
-      window.open(whatsappUrl, "_blank");
+      window.location.href = whatsappUrl;
 
       setIsSubmitted(true);
       reset();
@@ -245,7 +247,7 @@ Message: ${data.message || "No additional message"}`;
           </div>
 
           <a
-            href="https://wa.me/91XXXXXXXXXX"
+            href="https://wa.me/919810750144"
             target="_blank"
             rel="noopener noreferrer"
             className="flex w-full items-center justify-center gap-2 rounded-2xl border-2 border-zinc-200 py-4 font-bold text-zinc-900 transition-all hover:bg-zinc-50 dark:border-zinc-800 dark:text-white dark:hover:bg-zinc-900"
@@ -269,6 +271,37 @@ const TrustPanel = () => {
 
   return (
     <div className="flex flex-col gap-8 lg:sticky lg:top-32">
+      {/* Compact Direct Contact at the top */}
+      <div className="flex flex-col sm:flex-row gap-4 rounded-3xl border border-zinc-200 bg-zinc-50/50 p-4 dark:border-zinc-800 dark:bg-zinc-900/30">
+        <a 
+          href="mailto:Bizmint.info@gmail.com" 
+          className="flex flex-1 items-center gap-3 group transition-colors"
+        >
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white shadow-sm border border-zinc-100 group-hover:border-blue-500 transition-colors dark:bg-zinc-800 dark:border-zinc-700">
+            <Mail className="h-4 w-4 text-blue-600" />
+          </div>
+          <div className="flex flex-col min-w-0">
+            <span className="text-[10px] font-bold uppercase tracking-wider text-zinc-400">Email</span>
+            <span className="text-sm font-bold text-zinc-900 dark:text-zinc-100 truncate group-hover:text-blue-600 transition-colors">Bizmint.info@gmail.com</span>
+          </div>
+        </a>
+
+        <div className="hidden sm:block w-px h-10 bg-zinc-200 dark:bg-zinc-800" />
+
+        <a 
+          href="tel:+919810750144" 
+          className="flex flex-1 items-center gap-3 group transition-colors"
+        >
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white shadow-sm border border-zinc-100 group-hover:border-blue-500 transition-colors dark:bg-zinc-800 dark:border-zinc-700">
+            <Phone className="h-4 w-4 text-emerald-600" />
+          </div>
+          <div className="flex flex-col">
+            <span className="text-[10px] font-bold uppercase tracking-wider text-zinc-400">Call Us</span>
+            <span className="text-sm font-bold text-zinc-900 dark:text-zinc-100 group-hover:text-emerald-600 transition-colors">+91 9810750144</span>
+          </div>
+        </a>
+      </div>
+
       <div className="space-y-4">
         <h2 className="font-outfit text-4xl font-bold tracking-tight text-zinc-900 dark:text-white">
           Why choose <span className="text-blue-600">Bizmint?</span>

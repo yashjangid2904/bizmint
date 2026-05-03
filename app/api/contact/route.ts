@@ -3,12 +3,13 @@ import connectToDatabase from "@/lib/mongodb";
 import Contact from "@/models/Contact";
 
 export async function POST(request: Request) {
+  let body: any;
   try {
     // 1. Connect to the database
     await connectToDatabase();
 
     // 2. Extract data from request body
-    const body = await request.json();
+    body = await request.json();
     const { fullName, email, phone, service, message } = body;
 
     // 3. Validate required fields
@@ -34,7 +35,11 @@ export async function POST(request: Request) {
       { status: 201 }
     );
   } catch (error: any) {
-    console.error("Error submitting contact form:", error);
+    console.error("CRITICAL: Contact Form Submission Error:", {
+      message: error.message,
+      stack: error.stack,
+      body: body || 'unknown'
+    });
     return NextResponse.json(
       { error: "Failed to submit contact request.", details: error.message },
       { status: 500 }

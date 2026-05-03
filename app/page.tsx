@@ -21,7 +21,7 @@
 //           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_50%_-20%,#3b82f615_0%,transparent_50%)] dark:bg-[radial-gradient(circle_at_50%_-20%,#3b82f630_0%,transparent_50%)]" />
          
 //           {/* Suble Grid */}
-//           <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 brightness-100 contrast-150" />
+//           <div className="absolute inset-0 bg-[url('/noise.svg')] opacity-20 brightness-100 contrast-150" />
 //           <div
 //             className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]"
 //             style={{ backgroundImage: 'linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)', backgroundSize: '40px 40px' }}
@@ -262,6 +262,7 @@ import FAQ from "@/components/sections/FAQ";
 import { useState } from "react";
  
 import ServiceOrbit from "@/components/sections/ServiceOrbit";
+import GlobalSearch from "@/components/search/GlobalSearch";
  
 export default function Home() {
   return (
@@ -274,7 +275,7 @@ export default function Home() {
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_50%_-20%,#3b82f615_0%,transparent_50%)] dark:bg-[radial-gradient(circle_at_50%_-20%,#3b82f630_0%,transparent_50%)]" />
          
           {/* Suble Grid */}
-          <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 brightness-100 contrast-150" />
+          <div className="absolute inset-0 bg-[url('/noise.svg')] opacity-20 brightness-100 contrast-150" />
           <div
             className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]"
             style={{ backgroundImage: 'linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)', backgroundSize: '40px 40px' }}
@@ -331,8 +332,12 @@ export default function Home() {
                   Bizmint LLP bridges the gap between complex regulation and seamless growth.
                   We manage the statutory burden so you can focus on scale.
                 </p>
+
+                <div className="mt-12 w-full">
+                  <GlobalSearch />
+                </div>
  
-                <div className="mt-12 flex flex-wrap items-center justify-center gap-6 lg:justify-start">
+                <div className="mt-10 flex flex-wrap items-center justify-center gap-6 lg:justify-start">
                   <Link
                     href="/contact"
                     className="group relative flex h-16 items-center justify-center gap-3 overflow-hidden rounded-2xl bg-zinc-900 px-10 text-lg font-bold text-white transition-all hover:bg-black active:scale-95 dark:bg-white dark:text-black"
