@@ -21,10 +21,12 @@ const Footer = () => {
     {
       title: "Resources",
       links: [
-        { name: "Documentation", href: "/docs" },
-        { name: "Tutorials", href: "/tutorials" },
-        { name: "Blog", href: "/blog" },
-        { name: "Support", href: "/support" },
+        { name: "Blogs", href: "/resources?category=Blogs" },
+        { name: "Legal Updates", href: "/resources?category=Legal+Updates" },
+        { name: "Industry Guides", href: "/resources?category=Industry+Guides" },
+        { name: "YouTube Channel", href: "/resources?category=YouTube" },
+        { name: "Case Studies", href: "/resources?category=Case+Studies" },
+        { name: "Compliance News", href: "/resources?category=Compliance+News" },
       ],
     },
     {
