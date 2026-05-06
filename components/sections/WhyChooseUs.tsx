@@ -53,7 +53,7 @@ const WhyChooseUs = () => {
         <div className="absolute bottom-[0%] right-[-5%] w-[50%] h-[50%] rounded-full bg-indigo-200 blur-[120px] dark:bg-indigo-900" />
       </div>
 
-      <div className="container relative z-10 mx-auto px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl relative z-10 px-6 lg:px-8">
         <div className="mb-12 text-center px-4">
           <h2 className="font-outfit text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-4xl lg:text-5xl leading-tight">
             Why Forward-Thinking Businesses <br className="hidden sm:block" />

@@ -274,7 +274,7 @@ export default function Home() {
           />
         </div>
 
-        <div className="container relative z-10 mx-auto px-3 lg:px-12">
+        <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             
             {/* Left Content */}

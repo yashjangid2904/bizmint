@@ -34,7 +34,7 @@ const Process = () => {
       <div className="pointer-events-none absolute -top-24 right-0 h-96 w-96 rounded-full bg-blue-50/50 blur-3xl dark:bg-blue-900/10" />
       <div className="pointer-events-none absolute -bottom-24 left-0 h-96 w-96 rounded-full bg-indigo-50/50 blur-3xl dark:bg-indigo-900/10" />
 
-      <div className="container relative z-10 mx-auto px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl relative z-10 px-6 lg:px-8">
         <div className="mb-24 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
