@@ -34,8 +34,8 @@ const Process = () => {
       <div className="pointer-events-none absolute -top-24 right-0 h-96 w-96 rounded-full bg-blue-50/50 blur-3xl dark:bg-blue-900/10" />
       <div className="pointer-events-none absolute -bottom-24 left-0 h-96 w-96 rounded-full bg-indigo-50/50 blur-3xl dark:bg-indigo-900/10" />
 
-      <div className="container relative z-10 mx-auto px-6 lg:px-8">
-        <div className="mb-24 text-center">
+      <div className="container relative z-10 mx-auto px-5 sm:px-6 lg:px-8">
+        <div className="mb-16 sm:mb-24 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -44,7 +44,7 @@ const Process = () => {
           >
             <span>Our Workflow</span>
           </motion.div>
-          <h2 className="mt-6 font-outfit text-4xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-5xl">
+          <h2 className="mt-6 font-outfit text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 lg:text-5xl">
             How We <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Simplify</span> Compliance
           </h2>
           <p className="mx-auto mt-6 max-w-2xl text-base text-zinc-600 dark:text-zinc-400">
@@ -65,7 +65,7 @@ const Process = () => {
             />
           </div>
 
-          <div className="grid grid-cols-1 gap-16 lg:grid-cols-4 lg:gap-8">
+          <div className="grid grid-cols-1 gap-12 sm:gap-16 lg:grid-cols-4 lg:gap-8">
             {steps.map((step, i) => (
               <motion.div
                 key={i}
@@ -76,7 +76,7 @@ const Process = () => {
                 className="group relative flex flex-col items-center text-center"
               >
                 {/* Decorative Step Number */}
-                <div className="pointer-events-none absolute -top-12 left-1/2 -translate-x-1/2 font-outfit text-[10rem] font-black leading-none text-zinc-50 transition-colors duration-500 group-hover:text-zinc-100 dark:text-zinc-900/30 dark:group-hover:text-zinc-900/50">
+                <div className="pointer-events-none absolute -top-12 left-1/2 -translate-x-1/2 font-outfit text-[6rem] sm:text-[10rem] font-black leading-none text-zinc-50 transition-colors duration-500 group-hover:text-zinc-100 dark:text-zinc-900/30 dark:group-hover:text-zinc-900/50">
                   {i + 1}
                 </div>
 

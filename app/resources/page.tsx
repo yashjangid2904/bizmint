@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Suspense } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Search, ChevronRight, FileText, PlayCircle } from "lucide-react";
@@ -8,7 +8,7 @@ import { useSearchParams } from "next/navigation";
 
 const CATEGORIES = ["All", "Blogs", "Legal Updates", "Industry Guides", "Case Studies", "Compliance News"];
 
-export default function ResourcesPage() {
+function ResourcesContent() {
   const searchParams = useSearchParams();
   const defaultCategory = searchParams.get("category") || "All";
   
@@ -227,5 +227,13 @@ export default function ResourcesPage() {
         )}
       </div>
     </div>
+  );
+}
+
+export default function ResourcesPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-zinc-50 pt-32 pb-20 dark:bg-black flex items-center justify-center"><div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div></div>}>
+      <ResourcesContent />
+    </Suspense>
   );
 }

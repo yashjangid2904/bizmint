@@ -21,7 +21,7 @@ export default function Home() {
           />
         </div>
 
-        <div className="container relative z-10 mx-auto px-3 lg:px-12">
+        <div className="container relative z-10 mx-auto px-5 sm:px-6 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             
             {/* Left Content */}
@@ -30,17 +30,17 @@ export default function Home() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
-              <h1 className="font-outfit text-5xl md:text-6xl lg:text-5xl font-bold tracking-tight text-zinc-900 dark:text-white leading-[1.1]">
+              <h1 className="font-outfit text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-bold tracking-tight text-zinc-900 dark:text-white leading-[1.1]">
                 <span className="text-blue-600">Premium</span> Advisory <br />
                 for Modern Business
               </h1>
               
-              <p className="mt-8 text-xl text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-xl">
+              <p className="mt-6 sm:mt-8 text-base sm:text-lg md:text-xl text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-xl">
                 Bizmint LLP bridges the gap between complex regulation and seamless growth. 
                 We manage the statutory burden so you can focus on scale.
               </p>
 
-              <div className="mt-10 flex flex-wrap gap-4">
+              <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4">
                 <Link
                   href="/contact"
                   className="flex items-center justify-center px-8 py-4 bg-zinc-900 dark:bg-white text-white dark:text-black font-bold rounded-2xl hover:bg-black dark:hover:bg-zinc-200 transition-all shadow-lg shadow-zinc-900/10"
@@ -57,7 +57,7 @@ export default function Home() {
               </div>
 
               {/* Stats Section */}
-              <div className="mt-12 flex items-center gap-12 border-t border-zinc-100 dark:border-zinc-800 pt-8">
+              <div className="mt-8 sm:mt-12 flex items-center gap-8 sm:gap-12 border-t border-zinc-100 dark:border-zinc-800 pt-6 sm:pt-8">
                 <div>
                   <div className="text-3xl font-bold text-zinc-900 dark:text-white">500+</div>
                   <div className="text-sm font-medium text-zinc-500 uppercase tracking-wider mt-1">Clients</div>

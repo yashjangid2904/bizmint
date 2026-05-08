@@ -53,30 +53,30 @@ const WhyChooseUs = () => {
         <div className="absolute bottom-[0%] right-[-5%] w-[50%] h-[50%] rounded-full bg-indigo-200 blur-[120px] dark:bg-indigo-900" />
       </div>
 
-      <div className="container relative z-10 mx-auto px-6 lg:px-8">
-        <div className="mb-12 text-center">
-          <h2 className="font-outfit text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-4xl lg:text-5xl">
-            Why Forward-Thinking Businesses <br />
+      <div className="container relative z-10 mx-auto px-5 sm:px-6 lg:px-8">
+        <div className="mb-10 sm:mb-12 text-center">
+          <h2 className="font-outfit text-2xl sm:text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 md:text-4xl lg:text-5xl">
+            Why Forward-Thinking Businesses <br className="hidden sm:block" />
             <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
               Trust Bizmint
             </span>
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-base text-zinc-600 dark:text-zinc-400 sm:text-lg">
+          <p className="mx-auto mt-4 max-w-2xl text-sm sm:text-base text-zinc-600 dark:text-zinc-400 md:text-lg">
             We combine deep regulatory expertise with modern technology to deliver
             a seamless compliance experience for modern enterprises.
           </p>
         </div>
 
         {/* Circular Gallery (Desktop) / Grid (Mobile) */}
-        <div className="relative flex min-h-[450px] items-center justify-center lg:min-h-[650px]">
+        <div className="relative flex flex-col lg:flex-row min-h-0 lg:min-h-[650px] items-center justify-center">
 
           {/* Central Core */}
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
-            className="relative z-20 flex h-52 w-52 flex-col items-center justify-center rounded-full border border-zinc-200 bg-white/80 p-6 text-center shadow-2xl backdrop-blur-xl dark:border-zinc-800 dark:bg-zinc-900/80 sm:h-64 sm:w-64"
+            className="relative z-20 flex h-40 w-40 sm:h-52 sm:w-52 md:h-64 md:w-64 flex-col items-center justify-center rounded-full border border-zinc-200 bg-white/80 p-4 sm:p-6 text-center shadow-2xl backdrop-blur-xl dark:border-zinc-800 dark:bg-zinc-900/80 shrink-0"
           >
-            <div className="mb-3 font-outfit text-2xl font-black text-slate-900 dark:text-white sm:text-3xl">
+            <div className="mb-2 sm:mb-3 font-outfit text-xl sm:text-2xl font-black text-slate-900 dark:text-white md:text-3xl">
               BIZMINT
             </div>
             <div className="flex flex-col gap-1 sm:gap-2">
@@ -133,7 +133,7 @@ const WhyChooseUs = () => {
           </div>
 
           {/* Mobile Grid Fallback */}
-          <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:hidden">
+          <div className="mt-8 w-full grid grid-cols-1 gap-3 sm:grid-cols-2 lg:hidden">
             {features.map((feature, i) => (
               <motion.div
                 key={i}

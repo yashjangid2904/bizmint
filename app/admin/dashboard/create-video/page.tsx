@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeft, Save, Loader2, Youtube } from "lucide-react";
+import { ArrowLeft, Save, Loader2, Video } from "lucide-react";
 
 export default function CreateVideo() {
   const router = useRouter();
@@ -68,7 +68,7 @@ export default function CreateVideo() {
 
         <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-3xl p-8 shadow-xl shadow-red-900/5">
           <h1 className="flex items-center gap-2 text-2xl font-bold text-zinc-900 dark:text-white mb-8">
-            <Youtube className="text-red-600" /> Create YouTube Link
+            <Video className="text-red-600" /> Create YouTube Link
           </h1>
 
           <form onSubmit={handleSubmit} className="flex flex-col gap-6">

@@ -17,117 +17,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 
-interface ServiceItem {
-  name: string;
-  href: string;
-}
-
-interface ServiceCategory {
-  title: string;
-  icon: any;
-  services: (string | ServiceItem)[];
-  color: string;
-  href: string;
-}
-
-const categories: ServiceCategory[] = [
-  {
-    title: "Start Business",
-    icon: Building2,
-    color: "#3b82f6",
-    href: "/services/start-business",
-    services: [
-      { name: "Private Limited Company", href: "/services/private-limited-company" },
-      { name: "LLP Registration", href: "/services/llp-registration" },
-      { name: "OPC Registration", href: "/services/opc-registration" },
-      { name: "Foreign Subsidiary", href: "/services/foreign-subsidiary" }
-    ]
-  },
-  {
-    title: "Tax & Accounting",
-    icon: Calculator,
-    color: "#10b981",
-    href: "/services/tax-accounting",
-    services: [
-      { name: "GST Registration & Filing", href: "/services/gst-income-tax" },
-      { name: "Income Tax (ITR) Filing", href: "/services/gst-income-tax" },
-      { name: "TDS Compliance", href: "/services/gst-income-tax" },
-      { name: "Bookkeeping & Financials", href: "/services/annual-compliance" }
-    ]
-  },
-  {
-    title: "Licenses",
-    icon: FileText,
-    color: "#f59e0b",
-    href: "/services/licenses",
-    services: [
-      { name: "BIS / BEE / WPC / PESO", href: "/services/bis-bee-wpc-peso" },
-      { name: "NBFC License (RBI)", href: "/services/nbfc-registration" },
-      { name: "SEBI License (AIF/IA)", href: "/services/sebi-license" },
-      { name: "Insurance License (IRDAI)", href: "/services/insurance-license" }
-    ]
-  },
-  {
-    title: "Compliance",
-    icon: ShieldCheck,
-    color: "#8b5cf6",
-    href: "/services/compliance",
-    services: [
-      { name: "ROC Filing & Annual Returns", href: "/services/roc-filings" },
-      { name: "Director KYC (DIN)", href: "/services/din-kyc" },
-      { name: "Annual Compliance", href: "/services/annual-compliance" },
-      { name: "FEMA / RBI Reporting", href: "/services/fdi-fema" }
-    ]
-  },
-  {
-    title: "NBFC & Finance",
-    icon: Wallet,
-    color: "#ef4444",
-    href: "/services/nbfc-finance",
-    services: [
-      { name: "NBFC Setup & Acquisition", href: "/services/nbfc-setup" },
-      { name: "Ongoing NBFC Compliance", href: "/services/nbfc-compliance" },
-      { name: "P2P Lending License", href: "/services/p2p-license" },
-      { name: "RBI Statutory Services", href: "/services/rbi-services" }
-    ]
-  },
-  {
-    title: "International",
-    icon: Globe,
-    color: "#06b6d4",
-    href: "/services/international",
-    services: [
-      { name: "FDI / FEMA Advisory", href: "/services/fdi-fema" },
-      { name: "FC-GPR / FC-TRS Reporting", href: "/services/fc-gpr" },
-      { name: "Annual FLA Return", href: "/services/fla-return" },
-      { name: "Foreign Subsidiary Setup", href: "/services/foreign-subsidiary" }
-    ]
-  },
-  {
-    title: "Investor Services",
-    icon: Target,
-    color: "#6366f1",
-    href: "/services/investor-services",
-    services: [
-      { name: "IEPF Claim Recovery", href: "/services/iepf-claim" },
-      { name: "Duplicate Share Certificates", href: "/services/duplicate-shares" },
-      { name: "Share Transmission", href: "/services/share-transmission" },
-      { name: "Mutual Fund Redemption", href: "/services/mutual-fund-redemption" }
-    ]
-  },
-  {
-    title: "Registrations",
-    icon: Zap,
-    color: "#ec4899",
-    href: "/services/registrations",
-    services: [
-      { name: "Digital Signature (DSC)", href: "/services/dsc" },
-      { name: "IEC Registration", href: "/services/iec-registration" },
-      { name: "MSME Registration", href: "/services/msme-registration" },
-      { name: "Startup India Recognition", href: "/services/startup-india" }
-    ]
-  }
-];
+import { ALL_SERVICES, type ServiceCategory, type Service } from "@/lib/services-data";
 
 const CategoryCard = ({ category, index }: { category: ServiceCategory; index: number }) => {
   return (
@@ -155,26 +45,21 @@ const CategoryCard = ({ category, index }: { category: ServiceCategory; index: n
       </div>
 
       <ul className="flex-1 space-y-3 mb-8">
-        {category.services.map((service, i) => {
-          const isObject = typeof service !== "string";
-          const name = isObject ? service.name : service;
-          const href = isObject ? service.href : "#";
-
+        {category.services.slice(0, 6).map((service, i) => {
           return (
             <li key={i} className="flex items-start gap-2 text-sm text-zinc-600 dark:text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-zinc-200 transition-colors">
               <div className="mt-1 flex h-3 w-3 shrink-0 items-center justify-center rounded-full bg-zinc-100 dark:bg-zinc-800">
                 <div className="h-1 w-1 rounded-full bg-zinc-400 dark:bg-zinc-600" />
               </div>
-              {isObject ? (
-                <Link href={href} className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                  {name}
-                </Link>
-              ) : (
-                <span>{name}</span>
-              )}
+              <Link href={service.href} className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                {service.name}
+              </Link>
             </li>
           );
         })}
+        {category.services.length > 6 && (
+          <li className="text-xs text-zinc-400 italic">And {category.services.length - 6} more...</li>
+        )}
       </ul>
 
       <Link 
@@ -195,7 +80,7 @@ const ExploreServices = () => {
       {/* Background Decor */}
       <div className="absolute top-0 left-1/2 -z-10 h-[500px] w-full -translate-x-1/2 bg-[radial-gradient(circle_at_50%_0%,#3b82f608_0%,transparent_70%)]" />
 
-      <div className="container mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="container mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mb-16 flex flex-col items-center text-center">
           <motion.div
@@ -204,7 +89,7 @@ const ExploreServices = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="font-outfit text-4xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-5xl">
+            <h2 className="font-outfit text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 lg:text-5xl">
               Explore Our <span className="text-blue-600 dark:text-blue-500">Services</span>
             </h2>
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
@@ -216,7 +101,7 @@ const ExploreServices = () => {
 
         {/* Grid */}
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {categories.map((category, i) => (
+          {ALL_SERVICES.map((category, i) => (
             <CategoryCard key={category.title} category={category} index={i} />
           ))}
         </div>
@@ -227,16 +112,16 @@ const ExploreServices = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-20 flex flex-col items-center gap-6 rounded-[2.5rem] bg-zinc-900 p-10 text-center dark:bg-zinc-900/50 dark:backdrop-blur-xl"
+          className="mt-12 sm:mt-20 flex flex-col items-center gap-4 sm:gap-6 rounded-2xl sm:rounded-[2.5rem] bg-zinc-900 p-6 sm:p-10 text-center dark:bg-zinc-900/50 dark:backdrop-blur-xl"
         >
-          <h3 className="text-2xl font-bold text-white">Can't find what you're looking for?</h3>
+          <h3 className="text-xl sm:text-2xl font-bold text-white">Can't find what you're looking for?</h3>
           <p className="max-w-xl text-zinc-400">
             Our advisory team handles over 100+ specialized regulatory and financial services. 
             Talk to us for a custom solution.
           </p>
           <Link
             href="/contact"
-            className="group flex items-center gap-2 rounded-full bg-white px-8 py-4 text-lg font-bold text-zinc-900 transition-all hover:bg-zinc-100 active:scale-95"
+            className="group flex items-center gap-2 rounded-full bg-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-bold text-zinc-900 transition-all hover:bg-zinc-100 active:scale-95"
           >
             Request Custom Advisory
             <ArrowRight size={20} className="transition-transform group-hover:translate-x-1" />

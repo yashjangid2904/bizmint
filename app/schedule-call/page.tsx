@@ -39,7 +39,7 @@ const ScheduleCallPage = () => {
 
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
-  const [topic, setTopic] = useState("General Compliance");
+  const [topic, setTopic] = useState("Company Registration");
 
   const handleSchedule = async () => {
     if (!fullName || !email) {
@@ -313,10 +313,17 @@ Time: ${selectedTime}`;
                               onChange={(e) => setTopic(e.target.value)}
                               className="w-full rounded-xl border border-zinc-100 bg-zinc-50 px-4 py-3 pr-10 text-zinc-900 outline-none focus:border-blue-600 dark:border-zinc-800 dark:bg-zinc-900 dark:text-white appearance-none cursor-pointer"
                             >
-                              <option value="General Compliance">General Compliance</option>
                               <option value="Company Registration">Company Registration</option>
-                              <option value="SEBI Advisory">SEBI Advisory</option>
-                              <option value="RBI Filings">RBI Filings</option>
+                              <option value="Regulatory Compliance">Regulatory Compliance</option>
+                              <option value="Tax & Accounting">Tax & Accounting</option>
+                              <option value="NBFC & RBI Services">NBFC & RBI Services</option>
+                              <option value="SEBI & Investment Advisory">SEBI & Investment Advisory</option>
+                              <option value="International / FEMA Compliance">International / FEMA Compliance</option>
+                              <option value="Licenses & Certifications">Licenses & Certifications</option>
+                              <option value="Share Recovery & IEPF">Share Recovery & IEPF</option>
+                              <option value="Legal & Corporate Advisory">Legal & Corporate Advisory</option>
+                              <option value="Startup & MSME Support">Startup & MSME Support</option>
+                              <option value="Other">Other</option>
                             </select>
                             <ChevronDown className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 h-5 w-5 text-zinc-400 group-focus-within:text-blue-600 transition-colors" />
                           </div>

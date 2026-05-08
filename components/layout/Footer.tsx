@@ -44,8 +44,8 @@ const Footer = () => {
   return (
     <footer className="bg-zinc-50 pt-3 pb-4 dark:bg-black">
       <div className="mx-auto max-w-[1440px] px-6">
-        <div className="rounded-[2.5rem] border border-zinc-200 bg-white p-5 shadow-sm dark:border-zinc-800 dark:bg-zinc-950 lg:p-8">
-          <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+        <div className="rounded-2xl sm:rounded-[2.5rem] border border-zinc-200 bg-white p-5 shadow-sm dark:border-zinc-800 dark:bg-zinc-950 sm:p-6 lg:p-8">
+          <div className="grid grid-cols-1 gap-8 sm:gap-6 lg:grid-cols-2">
             {/* Left Side: Brand & Address */}
             <div className="flex flex-col gap-4">
               <div className="flex items-center gap-2">
@@ -99,7 +99,7 @@ const Footer = () => {
               © {currentYear} Bizmint. All rights reserved.
             </p>
 
-            <div className="flex items-center gap-8">
+            <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-8">
               {[
                 { name: "Privacy Policy", href: "/privacy" },
                 { name: "Terms of Service", href: "/terms" },
