@@ -63,8 +63,8 @@ const FAQItem = ({ question, answer }: { question: string; answer: string }) => 
 
 const FAQ = () => {
   return (
-    <section className="bg-white pt-24 pb-12 dark:bg-black">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+    <section className="bg-white pt-16 sm:pt-24 pb-12 dark:bg-black">
+      <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -73,7 +73,7 @@ const FAQ = () => {
             transition={{ duration: 0.6 }}
             className="mb-16 text-center"
           >
-            <h2 className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-4xl">
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 md:text-4xl">
               Frequently Asked <span className="text-blue-600">Questions</span>
             </h2>
             <p className="mt-4 text-lg text-zinc-600 dark:text-zinc-400">
@@ -88,7 +88,7 @@ const FAQ = () => {
           </div>
         </div>
 
-        <div className="relative mt-20 overflow-hidden rounded-[2.5rem] bg-zinc-900 px-6 sm:px-8 py-12 text-white dark:bg-zinc-950 lg:p-16">
+        <div className="relative mt-12 sm:mt-20 overflow-hidden rounded-2xl sm:rounded-[2.5rem] bg-zinc-900 px-6 py-10 text-white dark:bg-zinc-950 sm:px-8 sm:py-12 lg:p-16">
           {/* Abstract Background Elements */}
           <div className="absolute inset-0 z-0">
             <div className="absolute -top-[20%] -right-[10%] h-[150%] w-[50%] skew-x-12 bg-blue-600/10 blur-[100px]" />
@@ -97,10 +97,10 @@ const FAQ = () => {
             />
           </div>
 
-          <div className="relative z-10 grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center">
-            <div className="text-center lg:text-left">
-              <h3 className="text-3xl font-bold leading-tight tracking-tight sm:text-4xl">
-                Still have questions? <br className="hidden sm:block" />
+          <div className="relative z-10 grid grid-cols-1 gap-10 lg:grid-cols-2 lg:items-center">
+            <div>
+              <h3 className="text-2xl sm:text-3xl font-bold leading-tight tracking-tight md:text-4xl">
+                Still have questions? <br />
                 <span className="text-blue-400">Talk to our experts.</span>
               </h3>
             </div>
@@ -110,9 +110,9 @@ const FAQ = () => {
                 Our team of seasoned professionals is ready to help you navigate the complexities
                 of regulatory compliance and business growth.
               </p>
-              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-6">
-                <Link href="/contact" className="w-full sm:w-auto">
-                  <button className="group flex w-full items-center justify-center gap-2 rounded-xl bg-white px-8 py-4 text-base font-bold text-zinc-950 transition-all hover:bg-zinc-100 active:scale-[0.98]">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
+                <Link href="/contact">
+                  <button className="group flex items-center gap-2 rounded-xl bg-white px-6 py-3.5 text-base font-bold text-zinc-950 transition-all hover:bg-zinc-100 active:scale-[0.98]">
                     Talk to an Expert
                     <div className="flex h-5 w-5 items-center justify-center rounded-full bg-zinc-900 text-white transition-transform group-hover:translate-x-0.5">
                       <Plus size={12} strokeWidth={3} />

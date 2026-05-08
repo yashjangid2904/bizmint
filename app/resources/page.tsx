@@ -2,9 +2,12 @@
 
 import React, { useEffect, useState, Suspense } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
-import { Search, ChevronRight, FileText, PlayCircle } from "lucide-react";
+import { Search, ChevronRight, FileText, PlayCircle, Calendar } from "lucide-react";
 import { useSearchParams } from "next/navigation";
+import { IResource } from "@/models/Resource";
+import { IVideo } from "@/models/Video";
 
 const CATEGORIES = ["All", "Blogs", "Legal Updates", "Industry Guides", "Case Studies", "Compliance News"];
 
@@ -14,13 +17,10 @@ function ResourcesContent() {
   
   const [activeCategory, setActiveCategory] = useState(defaultCategory);
   const [searchQuery, setSearchQuery] = useState("");
-  const [resources, setResources] = useState<any[]>([]);
-  const [videos, setVideos] = useState<any[]>([]);
+  const [resources, setResources] = useState<IResource[]>([]);
+  const [videos, setVideos] = useState<IVideo[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    setActiveCategory(defaultCategory);
-  }, [defaultCategory]);
 
   useEffect(() => {
     const fetchResources = async () => {
@@ -36,7 +36,7 @@ function ResourcesContent() {
           const vData = await vRes.json();
           setVideos(Array.isArray(vData) ? vData : []);
         }
-      } catch (error) {
+      } catch {
         console.error("Failed to fetch resources");
       } finally {
         setIsLoading(false);
@@ -130,7 +130,7 @@ function ResourcesContent() {
             {/* Render Resources */}
             {activeCategory !== "YouTube" && resources.map((resource, idx) => (
               <motion.div
-                key={resource._id}
+                key={String(resource._id)}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
@@ -138,7 +138,7 @@ function ResourcesContent() {
               >
                 <div className="relative aspect-video w-full overflow-hidden bg-zinc-100 dark:bg-zinc-800">
                   {resource.thumbnail ? (
-                    <img src={resource.thumbnail} alt={resource.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                    <Image src={resource.thumbnail} alt={resource.title} fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
                   ) : (
                     <div className="flex h-full items-center justify-center">
                       <FileText className="text-zinc-300 dark:text-zinc-700" size={48} />
@@ -155,8 +155,8 @@ function ResourcesContent() {
                     <span className="text-xs font-semibold text-blue-600 dark:text-blue-400 uppercase tracking-wider">
                       {resource.category}
                     </span>
-                    <span className="text-xs text-zinc-500 dark:text-zinc-400">
-                      {new Date(resource.createdAt).toLocaleDateString()}
+                    <span className="flex items-center gap-1 text-xs text-zinc-500 dark:text-zinc-400">
+                      <Calendar size={14} /> {resource.createdAt ? new Date(resource.createdAt).toLocaleDateString() : 'N/A'}
                     </span>
                   </div>
                   <h3 className="text-xl font-bold text-zinc-900 dark:text-white line-clamp-2 mb-2 group-hover:text-blue-600 transition-colors">
@@ -175,7 +175,7 @@ function ResourcesContent() {
             {/* Render Videos */}
             {(activeCategory === "YouTube" || activeCategory === "All") && videos.map((video, idx) => (
               <motion.div
-                key={video._id}
+                key={String(video._id)}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
@@ -183,7 +183,7 @@ function ResourcesContent() {
               >
                 <div className="relative aspect-video w-full overflow-hidden bg-zinc-100 dark:bg-zinc-800">
                   {video.thumbnail ? (
-                    <img src={video.thumbnail} alt={video.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                    <Image src={video.thumbnail} alt={video.title} fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
                   ) : (
                     <div className="flex h-full items-center justify-center">
                       <PlayCircle className="text-zinc-300 dark:text-zinc-700" size={48} />
@@ -240,4 +240,3 @@ export default function ResourcesPage() {
     </Suspense>
   );
 }
-

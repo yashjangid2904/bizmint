@@ -170,9 +170,9 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative flex flex-col items-center justify-center overflow-hidden bg-white dark:bg-black pt-24 pb-0 sm:pt-32 sm:pb-0">
-      {/* ── Background ── */}
-      <div className="absolute inset-0 z-0">
+    <section className="relative flex flex-col items-center justify-center bg-white dark:bg-black pt-24 pb-24 sm:pt-32 sm:pb-32">
+      {/* ── Background Patterns (Clipped) ── */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[120%] h-[70%] bg-[radial-gradient(ellipse_at_50%_0%,#3b82f60a_0%,transparent_70%)]" />
         <div
           className="absolute inset-0 opacity-[0.025]"

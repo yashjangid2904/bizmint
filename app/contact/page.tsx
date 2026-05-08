@@ -43,23 +43,29 @@ const ContactForm = () => {
     reset,
   } = useForm<FormData>();
 
-  useEffect(() => {
-    const slug = searchParams.get("service");
-    if (slug) {
-      // Create a mapping of slug -> service name
-      const serviceMapping: Record<string, string> = {};
-      NAV_ITEMS.forEach(category => {
-        category.items.forEach(item => {
-          const itemSlug = item.href.split('/').pop();
-          if (itemSlug) {
-            serviceMapping[itemSlug] = item.name;
-          }
-        });
-      });
+  const [customService, setCustomService] = useState<string | null>(null);
 
-      const matchedServiceName = serviceMapping[slug];
-      if (matchedServiceName) {
-        setValue("service", matchedServiceName);
+  useEffect(() => {
+    const serviceParam = searchParams.get("service");
+    if (serviceParam) {
+      const decodedService = decodeURIComponent(serviceParam);
+      const allSubItems = NAV_ITEMS.flatMap(cat => cat.items);
+      
+      // Try to find by name directly (matches the select option values)
+      const foundByName = allSubItems.find(item => item.name.toLowerCase() === decodedService.toLowerCase());
+      
+      if (foundByName) {
+        setValue("service", foundByName.name);
+      } else {
+        // Also try to find by slug as fallback
+        const foundBySlug = allSubItems.find(item => item.href.split('/').pop() === decodedService.toLowerCase());
+        if (foundBySlug) {
+          setValue("service", foundBySlug.name);
+        } else {
+          // If not found in navigation, add as custom option
+          setCustomService(decodedService);
+          setValue("service", decodedService);
+        }
       }
     }
   }, [searchParams, setValue]);
@@ -206,6 +212,9 @@ Message: ${data.message || "No additional message"}`;
                     ))}
                   </optgroup>
                 ))}
+                {customService && !NAV_ITEMS.flatMap(cat => cat.items).some(item => item.href.split('/').pop() === customService) && (
+                  <option value={customService}>{customService}</option>
+                )}
               </select>
             </div>
           </div>
@@ -240,21 +249,6 @@ Message: ${data.message || "No additional message"}`;
             No spam • 100% confidential • Quick response
           </p>
 
-          <div className="flex items-center gap-4 py-2">
-            <div className="h-px flex-1 bg-zinc-200 dark:bg-zinc-800" />
-            <span className="text-xs font-bold uppercase tracking-widest text-zinc-400">or</span>
-            <div className="h-px flex-1 bg-zinc-200 dark:bg-zinc-800" />
-          </div>
-
-          <a
-            href="https://wa.me/919810750144"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex w-full items-center justify-center gap-2 rounded-2xl border-2 border-zinc-200 py-4 font-bold text-zinc-900 transition-all hover:bg-zinc-50 dark:border-zinc-800 dark:text-white dark:hover:bg-zinc-900"
-          >
-            <MessageCircle size={20} className="text-emerald-500" />
-            Chat on WhatsApp
-          </a>
         </div>
       </form>
     </div>
@@ -271,39 +265,45 @@ const TrustPanel = () => {
 
   return (
     <div className="flex flex-col gap-8 lg:sticky lg:top-32">
-      {/* Compact Direct Contact at the top */}
-      <div className="flex flex-col sm:flex-row gap-4 rounded-3xl border border-zinc-200 bg-zinc-50/50 p-4 dark:border-zinc-800 dark:bg-zinc-900/30">
-        <a 
-          href="mailto:Bizmint.info@gmail.com" 
-          className="flex flex-1 items-center gap-3 group transition-colors"
-        >
-          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white shadow-sm border border-zinc-100 group-hover:border-blue-500 transition-colors dark:bg-zinc-800 dark:border-zinc-700">
-            <Mail className="h-4 w-4 text-blue-600" />
+      {/* Direct Contact Methods */}
+      <div className="rounded-[2rem] border border-zinc-100 bg-white p-6 shadow-xl shadow-zinc-200/50 dark:border-zinc-800 dark:bg-zinc-900/50 dark:shadow-none">
+        <div className="flex flex-col sm:flex-row lg:flex-col xl:flex-row items-center gap-6 sm:gap-0 lg:gap-6 xl:gap-0">
+          {/* Email */}
+          <div className="flex-1 flex items-center gap-3 w-full min-w-0">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-zinc-100 bg-white shadow-xs dark:border-zinc-800 dark:bg-zinc-950">
+              <Mail size={18} className="text-blue-600" />
+            </div>
+            <div className="min-w-0">
+              <p className="text-[9px] font-bold uppercase tracking-widest text-zinc-400">Email</p>
+              <a href="mailto:Bizmint.info@gmail.com" className="block text-sm font-bold text-zinc-900 dark:text-white hover:text-blue-600 transition-colors leading-none truncate">
+                Bizmint.info@gmail.com
+              </a>
+            </div>
           </div>
-          <div className="flex flex-col min-w-0">
-            <span className="text-[10px] font-bold uppercase tracking-wider text-zinc-400">Email</span>
-            <span className="text-sm font-bold text-zinc-900 dark:text-zinc-100 truncate group-hover:text-blue-600 transition-colors">Bizmint.info@gmail.com</span>
-          </div>
-        </a>
 
-        <div className="hidden sm:block w-px h-10 bg-zinc-200 dark:bg-zinc-800" />
+          {/* Vertical Divider - Hidden on lg desktop sidebar, shown on sm mobile and xl desktop */}
+          <div className="hidden sm:block lg:hidden xl:block h-10 w-px bg-zinc-200 dark:bg-zinc-800 mx-4" />
+          
+          {/* Horizontal Divider - Shown on mobile and lg desktop sidebar */}
+          <div className="sm:hidden lg:block xl:hidden w-full h-px bg-zinc-100 dark:bg-zinc-800/50" />
 
-        <a 
-          href="tel:+919810750144" 
-          className="flex flex-1 items-center gap-3 group transition-colors"
-        >
-          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white shadow-sm border border-zinc-100 group-hover:border-blue-500 transition-colors dark:bg-zinc-800 dark:border-zinc-700">
-            <Phone className="h-4 w-4 text-emerald-600" />
+          {/* Call */}
+          <div className="flex-1 flex items-center gap-3 w-full min-w-0">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-zinc-100 bg-white shadow-xs dark:border-zinc-800 dark:bg-zinc-950">
+              <Phone size={18} className="text-emerald-500" />
+            </div>
+            <div className="min-w-0">
+              <p className="text-[9px] font-bold uppercase tracking-widest text-zinc-400">Call Us</p>
+              <a href="tel:+919810750144" className="block text-sm font-bold text-zinc-900 dark:text-white hover:text-emerald-500 transition-colors leading-none">
+                +91 9810750144
+              </a>
+            </div>
           </div>
-          <div className="flex flex-col">
-            <span className="text-[10px] font-bold uppercase tracking-wider text-zinc-400">Call Us</span>
-            <span className="text-sm font-bold text-zinc-900 dark:text-zinc-100 group-hover:text-emerald-600 transition-colors">+91 9810750144</span>
-          </div>
-        </a>
+        </div>
       </div>
 
       <div className="space-y-4">
-        <h2 className="font-outfit text-4xl font-bold tracking-tight text-zinc-900 dark:text-white">
+        <h2 className="font-outfit text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-zinc-900 dark:text-white">
           Why choose <span className="text-blue-600">Bizmint?</span>
         </h2>
         <p className="text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">
@@ -340,13 +340,13 @@ const ContactPage = () => {
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-[radial-gradient(circle_at_50%_0%,#3b82f610_0%,transparent_70%)]" />
       </div>
 
-      <div className="container relative z-10 mx-auto max-w-6xl px-4 sm:px-6">
+      <div className="container relative z-10 mx-auto max-w-6xl px-5 sm:px-6">
         <div className="mb-10 sm:mb-16 text-center lg:text-left">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            <h1 className="font-outfit text-4xl font-black tracking-tight text-zinc-900 dark:text-white sm:text-6xl">
+            <h1 className="font-outfit text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-zinc-900 dark:text-white lg:text-6xl">
               Talk to an <span className="text-blue-600">Expert</span>
             </h1>
             <p className="mt-4 sm:mt-6 text-lg sm:text-xl font-medium text-zinc-600 dark:text-zinc-400">
@@ -355,7 +355,7 @@ const ContactPage = () => {
           </motion.div>
         </div>
 
-        <div className="grid grid-cols-1 gap-16 lg:grid-cols-12">
+        <div className="grid grid-cols-1 gap-10 sm:gap-16 lg:grid-cols-12">
           <div className="lg:col-span-7">
             <Suspense fallback={<div>Loading form...</div>}>
               <ContactForm />

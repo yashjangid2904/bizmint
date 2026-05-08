@@ -6,11 +6,13 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowLeft, Calendar, Tag } from "lucide-react";
 import DOMPurify from "isomorphic-dompurify";
+import Image from "next/image";
+import { IResource } from "@/models/Resource";
 
 export default function ResourceSlugPage() {
   const { slug } = useParams();
   const router = useRouter();
-  const [resource, setResource] = useState<any>(null);
+  const [resource, setResource] = useState<IResource | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -23,8 +25,8 @@ export default function ResourceSlugPage() {
         }
         const data = await res.json();
         setResource(data);
-      } catch (error) {
-        router.push("/resources");
+      } catch (err) {
+        console.error("Failed to fetch resource");
       } finally {
         setIsLoading(false);
       }
@@ -63,7 +65,7 @@ export default function ResourceSlugPage() {
               <Tag size={12} /> {resource.category}
             </span>
             <span className="flex items-center gap-1.5 text-sm text-zinc-500">
-              <Calendar size={14} /> {new Date(resource.createdAt).toLocaleDateString()}
+              <Calendar size={14} /> {resource.createdAt ? new Date(resource.createdAt).toLocaleDateString() : 'N/A'}
             </span>
           </div>
 
@@ -73,7 +75,13 @@ export default function ResourceSlugPage() {
 
           {resource.thumbnail && (
             <div className="relative aspect-video w-full overflow-hidden rounded-3xl mb-12 shadow-2xl shadow-blue-900/10 border border-zinc-200 dark:border-zinc-800">
-              <img src={resource.thumbnail} alt={resource.title} className="w-full h-full object-cover" />
+              <Image 
+                src={resource.thumbnail} 
+                alt={resource.title} 
+                fill
+                className="object-cover" 
+                priority
+              />
             </div>
           )}
 
