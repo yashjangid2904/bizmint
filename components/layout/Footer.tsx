@@ -15,7 +15,7 @@ const Footer = () => {
         { name: "Features", href: "/features" },
         { name: "Pricing", href: "/pricing" },
         { name: "Integrations", href: "/integrations" },
-        { name: "Changelog", href: "/changelog" },
+        // { name: "Changelog", href: "/changelog" },
       ],
     },
     {
@@ -33,7 +33,7 @@ const Footer = () => {
       title: "Company",
       links: [
         { name: "About", href: "/about" },
-        { name: "Careers", href: "/careers" },
+        // { name: "Careers", href: "/careers" },
         { name: "Contact", href: "/contact" },
         { name: "Partners", href: "/partners" },
       ],
