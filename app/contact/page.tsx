@@ -265,41 +265,45 @@ const TrustPanel = () => {
 
   return (
     <div className="flex flex-col gap-8 lg:sticky lg:top-32">
-      {/* Direct Contact Methods */}
-      <div className="rounded-[2rem] border border-zinc-100 bg-white p-6 shadow-xl shadow-zinc-200/50 dark:border-zinc-800 dark:bg-zinc-900/50 dark:shadow-none">
-        <div className="flex flex-col sm:flex-row lg:flex-col xl:flex-row items-center gap-6 sm:gap-0 lg:gap-6 xl:gap-0">
-          {/* Email */}
-          <div className="flex-1 flex items-center gap-3 w-full min-w-0">
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-zinc-100 bg-white shadow-xs dark:border-zinc-800 dark:bg-zinc-950">
-              <Mail size={18} className="text-blue-600" />
-            </div>
-            <div className="min-w-0">
-              <p className="text-[9px] font-bold uppercase tracking-widest text-zinc-400">Email</p>
-              <a href="mailto:Bizmint.info@gmail.com" className="block text-sm font-bold text-zinc-900 dark:text-white hover:text-blue-600 transition-colors leading-none truncate">
-                Bizmint.info@gmail.com
-              </a>
-            </div>
+      {/* Direct Contact Methods - Premium SaaS Style */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
+        {/* Email Card */}
+        <a 
+          href="mailto:Bizmint.info@gmail.com" 
+          className="group relative flex items-center gap-4 rounded-3xl border border-zinc-100 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-500/10 dark:border-zinc-800/50 dark:bg-zinc-900/50 dark:shadow-none dark:hover:bg-zinc-800/80"
+        >
+          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-blue-50 text-blue-600 ring-1 ring-blue-100 transition-colors group-hover:bg-blue-600 group-hover:text-white group-hover:ring-blue-600 dark:bg-blue-900/30 dark:ring-blue-800/50">
+            <Mail size={22} strokeWidth={2.5} />
           </div>
-
-          {/* Vertical Divider - Hidden on lg desktop sidebar, shown on sm mobile and xl desktop */}
-          <div className="hidden sm:block lg:hidden xl:block h-10 w-px bg-zinc-200 dark:bg-zinc-800 mx-4" />
-          
-          {/* Horizontal Divider - Shown on mobile and lg desktop sidebar */}
-          <div className="sm:hidden lg:block xl:hidden w-full h-px bg-zinc-100 dark:bg-zinc-800/50" />
-
-          {/* Call */}
-          <div className="flex-1 flex items-center gap-3 w-full min-w-0">
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-zinc-100 bg-white shadow-xs dark:border-zinc-800 dark:bg-zinc-950">
-              <Phone size={18} className="text-emerald-500" />
-            </div>
-            <div className="min-w-0">
-              <p className="text-[9px] font-bold uppercase tracking-widest text-zinc-400">Call Us</p>
-              <a href="tel:+919810750144" className="block text-sm font-bold text-zinc-900 dark:text-white hover:text-emerald-500 transition-colors leading-none">
-                +91 9810750144
-              </a>
-            </div>
+          <div className="min-w-0">
+            <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-zinc-400 dark:text-zinc-500">Email Address</p>
+            <p className="mt-0.5 text-base font-bold text-zinc-900 dark:text-white transition-colors group-hover:text-blue-600 dark:group-hover:text-blue-400 truncate">
+              Bizmint.info@gmail.com
+            </p>
           </div>
-        </div>
+          <div className="absolute right-6 opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-1">
+            <ArrowRight size={18} className="text-blue-600" />
+          </div>
+        </a>
+
+        {/* Phone Card */}
+        <a 
+          href="tel:+919810750144" 
+          className="group relative flex items-center gap-4 rounded-3xl border border-zinc-100 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-emerald-500/10 dark:border-zinc-800/50 dark:bg-zinc-900/50 dark:shadow-none dark:hover:bg-zinc-800/80"
+        >
+          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-600 ring-1 ring-emerald-100 transition-colors group-hover:bg-emerald-500 group-hover:text-white group-hover:ring-emerald-500 dark:bg-emerald-900/30 dark:ring-emerald-800/50">
+            <Phone size={22} strokeWidth={2.5} />
+          </div>
+          <div className="min-w-0">
+            <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-zinc-400 dark:text-zinc-500">Call Us</p>
+            <p className="mt-0.5 text-base font-bold text-zinc-900 dark:text-white transition-colors group-hover:text-emerald-500 dark:group-hover:text-emerald-400">
+              +91 9810750144
+            </p>
+          </div>
+          <div className="absolute right-6 opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-1">
+            <ArrowRight size={18} className="text-emerald-500" />
+          </div>
+        </a>
       </div>
 
       <div className="space-y-4">
@@ -323,12 +327,7 @@ const TrustPanel = () => {
         ))}
       </div>
 
-      <div className="rounded-[2rem] bg-zinc-900 p-8 text-white dark:bg-blue-600">
-        <h3 className="text-xl font-bold">Priority Support</h3>
-        <p className="mt-2 text-sm text-zinc-400 dark:text-blue-100">
-          Our senior partners handle complex regulatory filings directly to ensure 100% accuracy.
-        </p>
-      </div>
+
     </div>
   );
 };
@@ -356,10 +355,25 @@ const ContactPage = () => {
         </div>
 
         <div className="grid grid-cols-1 gap-10 sm:gap-16 lg:grid-cols-12">
-          <div className="lg:col-span-7">
+          <div className="lg:col-span-7 space-y-8">
             <Suspense fallback={<div>Loading form...</div>}>
               <ContactForm />
             </Suspense>
+
+            {/* Priority Support - Moved to Left Side */}
+            <div className="rounded-[2.5rem] bg-zinc-900 p-8 text-white dark:bg-blue-600 shadow-2xl shadow-blue-500/20">
+              <div className="flex flex-col sm:flex-row items-center gap-6">
+                <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-white/10 backdrop-blur-md">
+                  <ShieldCheck className="h-8 w-8 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold">Priority Support</h3>
+                  <p className="mt-2 text-sm text-zinc-400 dark:text-blue-50 opacity-90">
+                    Our senior partners handle complex regulatory filings directly to ensure 100% accuracy and faster processing times.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
           <div className="lg:col-span-5">
             <TrustPanel />
