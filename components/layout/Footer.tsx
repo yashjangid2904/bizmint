@@ -38,6 +38,16 @@ const Footer = () => {
         { name: "Partners", href: "/partners" },
       ],
     },
+    {
+      title: "Links",
+      links: [
+        { name: "https://www.rbi.org.in/", href: "https://www.rbi.org.in/", isExternal: true },
+        { name: "https://www.mca.gov.in/content/mca/global/en/home.html", href: "https://www.mca.gov.in/content/mca/global/en/home.html", isExternal: true },
+        { name: "https://www.sebi.gov.in/", href: "https://www.sebi.gov.in/", isExternal: true },
+        { name: "https://irdai.gov.in/", href: "https://irdai.gov.in/", isExternal: true },
+        { name: "https://www.bseindia.com/", href: "https://www.bseindia.com/", isExternal: true },
+      ],
+    },
   ];
 
 
@@ -45,9 +55,9 @@ const Footer = () => {
     <footer className="bg-zinc-50 pt-3 pb-4 dark:bg-black">
       <div className="mx-auto max-w-[1440px] px-6">
         <div className="rounded-2xl sm:rounded-[2.5rem] border border-zinc-200 bg-white p-5 shadow-sm dark:border-zinc-800 dark:bg-zinc-950 sm:p-6 lg:p-8">
-          <div className="grid grid-cols-1 gap-8 sm:gap-6 lg:grid-cols-2">
+          <div className="grid grid-cols-1 gap-8 sm:gap-6 lg:grid-cols-3">
             {/* Left Side: Brand & Address */}
-            <div className="flex flex-col items-center sm:items-start gap-4 text-center sm:text-left">
+            <div className="flex flex-col items-center sm:items-start gap-4 text-center sm:text-left lg:col-span-1">
               <div className="flex items-center gap-2">
                 <img src="/logo.png" alt="Bizmint Logo" className="h-10 w-auto object-contain" />
               </div>
@@ -70,7 +80,7 @@ const Footer = () => {
             </div>
 
             {/* Right Side: Links Grid */}
-            <div className="grid grid-cols-2 gap-8 sm:grid-cols-3">
+            <div className="grid grid-cols-2 gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:col-span-2">
               {footerSections.map((section) => (
                 <div key={section.title} className="text-center sm:text-left">
                   <h3 className="mb-4 text-sm font-bold text-zinc-900 dark:text-zinc-50">
@@ -81,7 +91,9 @@ const Footer = () => {
                       <li key={link.name}>
                         <Link
                           href={link.href}
-                          className="text-sm text-zinc-500 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50"
+                          target={(link as any).isExternal ? "_blank" : undefined}
+                          rel={(link as any).isExternal ? "noopener noreferrer" : undefined}
+                          className={`text-sm text-zinc-500 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50 break-words ${section.title === "Links" ? "text-[11px] leading-relaxed opacity-80 underline decoration-zinc-200 underline-offset-4 dark:decoration-zinc-800" : ""}`}
                         >
                           {link.name}
                         </Link>
