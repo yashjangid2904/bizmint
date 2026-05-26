@@ -9,13 +9,22 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const footerSections = [
+    // {
+    //   title: "Product",
+    //   links: [
+    //     { name: "Features", href: "/features" },
+    //     { name: "Pricing", href: "/pricing" },
+    //     { name: "Integrations", href: "/integrations" },
+    //     // { name: "Changelog", href: "/changelog" },
+    //   ],
+    // },
     {
-      title: "Product",
+      title: "Socials",
       links: [
-        { name: "Features", href: "/features" },
-        { name: "Pricing", href: "/pricing" },
-        { name: "Integrations", href: "/integrations" },
-        // { name: "Changelog", href: "/changelog" },
+        { name: "LinkedIn", href: "https://www.linkedin.com/company/bizmint-llp/", isExternal: true },
+        { name: "Twitter (X)", href: "https://x.com/BizmintInfo", isExternal: true },
+        { name: "YouTube", href: "https://youtube.com/@bizmintofficial?si=w4flVts_VM_Ysoa2", isExternal: true },
+        { name: "Instagram", href: "https://www.instagram.com/bizmintofficial?utm_source=qr&igsh=MXhxN2J3NmxtOXEzNQ%3D%3D", isExternal: true },
       ],
     },
     {
@@ -41,11 +50,11 @@ const Footer = () => {
     {
       title: "Links",
       links: [
-        { name: "https://www.rbi.org.in/", href: "https://www.rbi.org.in/", isExternal: true },
-        { name: "https://www.mca.gov.in/content/mca/global/en/home.html", href: "https://www.mca.gov.in/content/mca/global/en/home.html", isExternal: true },
-        { name: "https://www.sebi.gov.in/", href: "https://www.sebi.gov.in/", isExternal: true },
-        { name: "https://irdai.gov.in/", href: "https://irdai.gov.in/", isExternal: true },
-        { name: "https://www.bseindia.com/", href: "https://www.bseindia.com/", isExternal: true },
+        { name: "RBI", href: "https://www.rbi.org.in/", isExternal: true },
+        { name: "MCA", href: "https://www.mca.gov.in/content/mca/global/en/home.html", isExternal: true },
+        { name: "SEBI", href: "https://www.sebi.gov.in/", isExternal: true },
+        { name: "IRDAI", href: "https://irdai.gov.in/", isExternal: true },
+        { name: "BSE", href: "https://www.bseindia.com/", isExternal: true },
       ],
     },
   ];
@@ -72,9 +81,9 @@ const Footer = () => {
               <div className="flex items-start gap-3">
                 <MapPin size={16} className="mt-0.5 shrink-0 text-blue-500" />
                 <p className="text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">
-                  Maicha, Greater Noida,<br />
-                  Gautam Budh Nagar,<br />
-                  Uttar Pradesh – 201310, India
+                  Noida,<br />
+                  Uttar Pradesh 201301,<br />
+                  India
                 </p>
               </div>
             </div>
@@ -93,7 +102,7 @@ const Footer = () => {
                           href={link.href}
                           target={(link as any).isExternal ? "_blank" : undefined}
                           rel={(link as any).isExternal ? "noopener noreferrer" : undefined}
-                          className={`text-sm text-zinc-500 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50 break-words ${section.title === "Links" ? "text-[11px] leading-relaxed opacity-80 underline decoration-zinc-200 underline-offset-4 dark:decoration-zinc-800" : ""}`}
+                          className="text-sm text-zinc-500 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50"
                         >
                           {link.name}
                         </Link>

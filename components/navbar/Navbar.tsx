@@ -133,15 +133,20 @@ const Navbar = () => {
         </nav>
 
         {/* Action Buttons */}
-        <div className="hidden lg:flex items-center gap-3 shrink-0">
+        <div className="hidden lg:flex items-center gap-4 shrink-0">
           <ServiceSearch />
           
-          <Link
-            href={contactHref}
-            className="rounded-full bg-zinc-900 px-6 py-2.5 text-sm font-semibold text-white transition-all duration-200 hover:bg-zinc-800 hover:shadow-lg active:scale-[0.97] dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-100"
-          >
-            Talk to Expert
-          </Link>
+          <div className="flex flex-col items-center justify-center rounded-full bg-zinc-900 px-6 py-1.5 transition-all duration-200 hover:bg-zinc-800 hover:shadow-lg dark:bg-white dark:hover:bg-zinc-100 group">
+            <Link
+              href={contactHref}
+              className="text-sm font-semibold text-white dark:text-zinc-900"
+            >
+              Talk to Expert
+            </Link>
+            <a href="tel:+919990443772" className="text-[10px] font-medium tracking-wide text-zinc-400 transition-colors hover:text-white dark:text-zinc-500 dark:hover:text-zinc-900">
+              +91 99904 43772
+            </a>
+          </div>
         </div>
 
         {/* Mobile Toggle */}
@@ -272,13 +277,18 @@ const Navbar = () => {
 
             {/* Fixed Bottom CTA */}
             <div className="sticky bottom-0 left-0 right-0 p-4 sm:px-6 bg-white/95 dark:bg-zinc-950/95 backdrop-blur-xl border-t border-zinc-100 dark:border-zinc-800">
-              <Link
-                href={contactHref}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="flex items-center justify-center w-full rounded-2xl bg-zinc-900 py-3.5 text-sm font-semibold text-white dark:bg-white dark:text-zinc-900 active:scale-[0.98] transition-all shadow-lg shadow-zinc-900/10 dark:shadow-white/10"
-              >
-                Talk to Expert
-              </Link>
+              <div className="flex w-full flex-col items-center justify-center rounded-2xl bg-zinc-900 py-2.5 transition-all shadow-lg shadow-zinc-900/10 dark:bg-white dark:shadow-white/10 group">
+                <Link
+                  href={contactHref}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="text-sm font-semibold text-white dark:text-zinc-900"
+                >
+                  Talk to Expert
+                </Link>
+                <a href="tel:+919990443772" className="text-[12px] mt-0.5 font-medium tracking-wide text-zinc-400 transition-colors hover:text-white dark:text-zinc-500 dark:hover:text-zinc-900">
+                  +91 99904 43772
+                </a>
+              </div>
             </div>
           </motion.div>
         )}
