@@ -25,17 +25,30 @@ const HEADLINES = [
 ];
 
 /* ─────────────────────────────── POPULAR TAGS ──────────────────────────────── */
-const POPULAR_TAGS = [
-  { label: "Private Limited Company", href: "/services/private-limited-company" },
-  { label: "LLP Registration", href: "/services/llp-registration" },
-  { label: "GST / Income Tax", href: "/services/gst-income-tax" },
-  { label: "NBFC Registration", href: "/services/nbfc-registration" },
-  { label: "ROC Filings", href: "/services/roc-filings" },
-  { label: "SEBI Licenses", href: "/services/sebi-license" },
-  { label: "Startup India", href: "/services/startup-india" },
-  { label: "FEMA / FDI", href: "/services/fdi-fema" },
-  { label: "BIS / BEE / WPC", href: "/services/bis-bee-wpc-peso" },
-  { label: "IEPF Claim", href: "/services/iepf-claim" },
+const POPULAR_TAGS_ROWS = [
+  // Row 1 (5 items)
+  [
+    { label: "Private Limited Company", href: "/services/private-limited-company" },
+    { label: "LLP Registration", href: "/services/llp-registration" },
+    { label: "GST Registration", href: "/services/gst-registration" },
+    { label: "NBFC Registration", href: "/services/nbfc-registration" },
+    { label: "NBFC RBI Compliance & Regulatory Reporting", href: "/services/nbfc-rbi-compliance" },
+  ],
+  // Row 2 (5 items)
+  [
+    { label: "ROC Filings", href: "/services/annual-filing-company" },
+    { label: "RBI FEMA Compliance", href: "/services/rbi-fema-compliance-services" },
+    { label: "IRDAI Licence & Compliance Services", href: "/services/insurance-compliance" },
+    { label: "Insurance Broker License", href: "/services/insurance-broker" },
+    { label: "Corporate Agent License", href: "/services/corporate-agency" },
+  ],
+  // Row 3 (4 items)
+  [
+    { label: "IEPF Claim", href: "/services/iepf-claim" },
+    { label: "FDI Compliance & RBI Reporting (FC-GPR / FC-TRS)", href: "/services/fc-gpr-filing" },
+    { label: "Foreign Company Registration & India Entry Advisory", href: "/services/foreign-subsidiary" },
+    { label: "NBFC Acquisition / Change in Control Advisory", href: "/services/nbfc-acquisition" },
+  ]
 ];
 
 
@@ -183,7 +196,7 @@ const HeroSection = () => {
         />
       </div>
 
-      <div className="relative z-10 w-full max-w-4xl mx-auto px-5 sm:px-8">
+      <div className="relative z-10 w-full max-w-6xl mx-auto px-5 sm:px-8">
         {/* ── Headline ── */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -371,15 +384,19 @@ const HeroSection = () => {
             <Sparkles size={14} className="text-amber-500" />
             Top Searches
           </p>
-          <div className="flex flex-wrap justify-center gap-2 max-w-2xl mx-auto">
-            {POPULAR_TAGS.map((tag) => (
-              <Link
-                key={tag.href}
-                href={tag.href}
-                className="px-4 py-2 rounded-full border border-zinc-200 bg-white text-xs sm:text-sm font-semibold text-zinc-600 hover:border-blue-300 hover:bg-blue-50 hover:text-blue-700 transition-all duration-200 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-400 dark:hover:border-blue-800 dark:hover:bg-blue-950/30 dark:hover:text-blue-400 shadow-sm hover:shadow-md"
-              >
-                {tag.label}
-              </Link>
+          <div className="flex flex-col gap-2.5 max-w-5xl mx-auto w-full">
+            {POPULAR_TAGS_ROWS.map((row, rowIndex) => (
+              <div key={rowIndex} className="flex flex-wrap justify-center gap-2">
+                {row.map((tag) => (
+                  <Link
+                    key={tag.href}
+                    href={tag.href}
+                    className="px-4 py-2 rounded-full border border-zinc-200 bg-white text-[11px] sm:text-xs font-semibold text-zinc-600 hover:border-blue-300 hover:bg-blue-50 hover:text-blue-700 transition-all duration-200 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-400 dark:hover:border-blue-800 dark:hover:bg-blue-950/30 dark:hover:text-blue-400 shadow-sm hover:shadow-md whitespace-nowrap"
+                  >
+                    {tag.label}
+                  </Link>
+                ))}
+              </div>
             ))}
           </div>
         </motion.div>
