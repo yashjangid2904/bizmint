@@ -112,7 +112,7 @@ export const ALL_SERVICES: ServiceCategory[] = [
     title: "Start Business",
     slug: "start-business",
     icon: Building2,
-    color: "blue",
+    color: "#0f766e",
     description: "Launch your venture with the right legal structure. We handle everything from name approval to incorporation certificates.",
     href: "/services/start-business",
     services: [
@@ -1355,7 +1355,7 @@ export const ALL_SERVICES: ServiceCategory[] = [
     title: "Change Services",
     slug: "change-services",
     icon: RefreshCw,
-    color: "pink",
+    color: "#db2777",
     description: "Keep your business records updated with corporate changes. We handle all regulatory filings for modifications.",
     href: "/services/change-services",
     services: [
@@ -2644,7 +2644,7 @@ export const ALL_SERVICES: ServiceCategory[] = [
     title: "Tax & Accounting",
     slug: "tax-accounting",
     icon: Calculator,
-    color: "emerald",
+    color: "#059669",
     description: "Stay compliant with tax laws while optimizing your financial health. Our experts manage the numbers so you can manage the growth.",
     href: "/services/tax-accounting",
     services: [
@@ -3655,7 +3655,7 @@ export const ALL_SERVICES: ServiceCategory[] = [
     title: "Mandatory Compliance",
     slug: "mandatory-compliance",
     icon: ClipboardCheck,
-    color: "violet",
+    color: "#7c3aed",
     description: "Never miss a deadline. Our annual compliance packages ensure your business remains in good standing with the law.",
     href: "/services/mandatory-compliance",
     services: [
@@ -4511,7 +4511,7 @@ export const ALL_SERVICES: ServiceCategory[] = [
     title: "Regulatory Registration",
     slug: "regulatory-registration",
     icon: FileText,
-    color: "amber",
+    color: "#d97706",
     description: "Specialized licensing for Finance, Insurance, and Capital Markets. We navigate the complex regulatory landscape for you.",
     href: "/services/regulatory-registration",
     services: [
@@ -4546,7 +4546,7 @@ export const ALL_SERVICES: ServiceCategory[] = [
     title: "Government Certification",
     slug: "government-certification",
     icon: FileCheck,
-    color: "emerald",
+    color: "#059669",
     description: "Obtain essential government certifications and licenses for your products and operations. We handle the technical documentation and regulatory approvals.",
     href: "/services/government-certification",
     services: [
@@ -5198,7 +5198,7 @@ export const ALL_SERVICES: ServiceCategory[] = [
     title: "Recovery of Share",
     slug: "recovery-of-share",
     icon: Target,
-    color: "indigo",
+    color: "#16a34a",
     description: "Expert assistance in recovering lost, unclaimed, or transmitted shares and dividends from IEPF and companies.",
     href: "/services/recovery-of-share",
     services: [
@@ -5528,7 +5528,7 @@ export const ALL_SERVICES: ServiceCategory[] = [
     title: "Other Compliance",
     slug: "other-compliance",
     icon: BadgeCheck,
-    color: "rose",
+    color: "#e11d48",
     description: "Miscellaneous regulatory filings and professional drafting services to keep your operations smooth.",
     href: "/services/other-compliance",
     services: [

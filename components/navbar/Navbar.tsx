@@ -71,7 +71,7 @@ const Navbar = () => {
   // Close mobile menu on route change (resize)
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth >= 1024) {
+      if (window.innerWidth >= 1280) {
         setIsMobileMenuOpen(false);
       }
     };
@@ -89,7 +89,7 @@ const Navbar = () => {
           : "bg-white dark:bg-zinc-950"
       )}
     >
-      <div className="mx-auto flex w-full max-w-[1440px] items-center justify-between px-4 sm:px-6 py-3 lg:py-3.5 lg:px-10">
+      <div className="mx-auto flex w-full max-w-full items-center justify-between px-4 sm:px-6 py-3 lg:py-3.5 lg:px-8 xl:px-12">
         {/* Logo */}
         <Link href="/" className="group flex items-center gap-2.5 shrink-0" onClick={() => setIsMobileMenuOpen(false)}>
           <img 
@@ -100,13 +100,13 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav ref={navRef} className="hidden lg:flex items-center gap-0.5 xl:gap-1">
+        <nav ref={navRef} className="hidden xl:flex items-center gap-0.5 xl:gap-1 ml-auto mr-4 xl:mr-8 pl-4">
           {NAV_ITEMS.map((item) => (
             <div key={item.title} className="relative">
               <button
                 onClick={() => toggleMenu(item.title)}
                 className={cn(
-                  "flex items-center gap-1 rounded-lg px-3 py-2 text-[13px] font-semibold tracking-wide transition-all duration-200",
+                  "flex items-center gap-0.5 xl:gap-1 rounded-lg px-2 xl:px-3 py-2 text-[12px] xl:text-[13px] font-semibold tracking-wide transition-all duration-200",
                   openMenu === item.title
                     ? "text-zinc-900 dark:text-white"
                     : "text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
@@ -133,7 +133,7 @@ const Navbar = () => {
         </nav>
 
         {/* Action Buttons */}
-        <div className="hidden lg:flex items-center gap-4 shrink-0">
+        <div className="hidden xl:flex items-center gap-4 shrink-0">
           <ServiceSearch />
           
           <div className="flex flex-col items-center justify-center rounded-full bg-zinc-900 px-6 py-1.5 transition-all duration-200 hover:bg-zinc-800 hover:shadow-lg dark:bg-white dark:hover:bg-zinc-100 group">
@@ -143,14 +143,14 @@ const Navbar = () => {
             >
               Talk to Expert
             </Link>
-            <a href="tel:+919990443772" className="text-[10px] font-medium tracking-wide text-zinc-400 transition-colors hover:text-white dark:text-zinc-500 dark:hover:text-zinc-900">
-              +91 99904 43772
+            <a href="tel:+919821886772" className="text-[10px] font-medium tracking-wide text-zinc-400 transition-colors hover:text-white dark:text-zinc-500 dark:hover:text-zinc-900">
+              +91 98218 86772
             </a>
           </div>
         </div>
 
         {/* Mobile Toggle */}
-        <div className="flex items-center gap-1.5 sm:gap-2 lg:hidden">
+        <div className="flex items-center gap-1.5 sm:gap-2 xl:hidden">
           <ServiceSearch />
           <button 
             onClick={() => {
@@ -195,7 +195,7 @@ const Navbar = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 top-[56px] sm:top-[60px] z-[99] lg:hidden flex flex-col bg-white dark:bg-zinc-950"
+            className="fixed inset-0 top-[56px] sm:top-[60px] z-[99] xl:hidden flex flex-col bg-white dark:bg-zinc-950"
           >
             {/* Scrollable Content */}
             <div className="flex-1 overflow-y-auto overscroll-contain px-4 sm:px-6 py-4 pb-32">
@@ -285,8 +285,8 @@ const Navbar = () => {
                 >
                   Talk to Expert
                 </Link>
-                <a href="tel:+919990443772" className="text-[12px] mt-0.5 font-medium tracking-wide text-zinc-400 transition-colors hover:text-white dark:text-zinc-500 dark:hover:text-zinc-900">
-                  +91 99904 43772
+                <a href="tel:+919821886772" className="text-[12px] mt-0.5 font-medium tracking-wide text-zinc-400 transition-colors hover:text-white dark:text-zinc-500 dark:hover:text-zinc-900">
+                  +91 98218 86772
                 </a>
               </div>
             </div>

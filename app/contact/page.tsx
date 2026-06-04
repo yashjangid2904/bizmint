@@ -100,7 +100,7 @@ Message: ${data.message || "No additional message"}`;
 
       // 2. Generate WhatsApp URL
       // NOTE: Replace 919876543210 with your actual business WhatsApp number (Include 91, no + sign)
-      const businessWhatsApp = "919990443772";
+      const businessWhatsApp = "919821886772";
       const whatsappUrl = `https://wa.me/${businessWhatsApp}?text=${encodeURIComponent(whatsappMessage)}`;
 
       // 3. Redirect user to WhatsApp
@@ -256,78 +256,47 @@ Message: ${data.message || "No additional message"}`;
 };
 
 const TrustPanel = () => {
-  const stats = [
-    { label: "Clients Served", value: "500+", icon: Users, color: "text-blue-600" },
-    { label: "Success Rate", value: "99%", icon: ShieldCheck, color: "text-emerald-600" },
-    { label: "Response Time", value: "< 24h", icon: Clock, color: "text-orange-600" },
-    { label: "Dedicated Experts", value: "20+", icon: Zap, color: "text-purple-600" },
-  ];
-
   return (
-    <div className="flex flex-col gap-8 lg:sticky lg:top-32">
-      {/* Direct Contact Methods - Premium SaaS Style */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
-        {/* Email Card */}
-        <a 
-          href="mailto:info@bizmint.co.in" 
-          className="group relative flex items-center gap-4 rounded-3xl border border-zinc-100 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-500/10 dark:border-zinc-800/50 dark:bg-zinc-900/50 dark:shadow-none dark:hover:bg-zinc-800/80"
-        >
-          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-blue-50 text-blue-600 ring-1 ring-blue-100 transition-colors group-hover:bg-blue-600 group-hover:text-white group-hover:ring-blue-600 dark:bg-blue-900/30 dark:ring-blue-800/50">
-            <Mail size={22} strokeWidth={2.5} />
-          </div>
-          <div className="min-w-0">
-            <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-zinc-400 dark:text-zinc-500">Email Address</p>
-            <p className="mt-0.5 text-base font-bold text-zinc-900 dark:text-white transition-colors group-hover:text-blue-600 dark:group-hover:text-blue-400 truncate">
-              info@bizmint.co.in
-            </p>
-          </div>
-          <div className="absolute right-6 opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-1">
-            <ArrowRight size={18} className="text-blue-600" />
-          </div>
-        </a>
+    <div className="flex flex-col gap-4 lg:sticky lg:top-32">
+      {/* Phone Card */}
+      <a 
+        href="tel:+919821886772" 
+        className="group relative flex items-center gap-4 rounded-3xl border border-zinc-100 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-emerald-500/10 dark:border-zinc-800/50 dark:bg-zinc-900/50 dark:shadow-none dark:hover:bg-zinc-800/80"
+      >
+        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-600 ring-1 ring-emerald-100 transition-colors group-hover:bg-emerald-500 group-hover:text-white group-hover:ring-emerald-500 dark:bg-emerald-900/30 dark:ring-emerald-800/50">
+          <Phone size={22} strokeWidth={2.5} />
+        </div>
+        <div className="min-w-0">
+          <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-zinc-400 dark:text-zinc-500">Call Us</p>
+          <p className="mt-0.5 text-base font-bold text-zinc-900 dark:text-white transition-colors group-hover:text-emerald-500 dark:group-hover:text-emerald-400">
+            +91 98218 86772
+          </p>
+        </div>
+        <div className="absolute right-6 opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-1">
+          <ArrowRight size={18} className="text-emerald-500" />
+        </div>
+      </a>
 
-        {/* Phone Card */}
-        <a 
-          href="tel:+919990443772" 
-          className="group relative flex items-center gap-4 rounded-3xl border border-zinc-100 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-emerald-500/10 dark:border-zinc-800/50 dark:bg-zinc-900/50 dark:shadow-none dark:hover:bg-zinc-800/80"
-        >
-          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-600 ring-1 ring-emerald-100 transition-colors group-hover:bg-emerald-500 group-hover:text-white group-hover:ring-emerald-500 dark:bg-emerald-900/30 dark:ring-emerald-800/50">
-            <Phone size={22} strokeWidth={2.5} />
-          </div>
-          <div className="min-w-0">
-            <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-zinc-400 dark:text-zinc-500">Call Us</p>
-            <p className="mt-0.5 text-base font-bold text-zinc-900 dark:text-white transition-colors group-hover:text-emerald-500 dark:group-hover:text-emerald-400">
-              +91 99904 43772
-            </p>
-          </div>
-          <div className="absolute right-6 opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-1">
-            <ArrowRight size={18} className="text-emerald-500" />
-          </div>
-        </a>
-      </div>
-
-      <div className="space-y-4">
-        <h2 className="font-outfit text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-zinc-900 dark:text-white">
-          Why choose <span className="text-blue-600">Bizmint?</span>
-        </h2>
-        <p className="text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">
-          We combine deep regulatory expertise with modern technology to deliver seamless compliance and growth solutions for your enterprise.
-        </p>
-      </div>
-
-      <div className="grid grid-cols-2 gap-4">
-        {stats.map((stat, i) => (
-          <div key={i} className="rounded-3xl border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-900/50">
-            <div className={cn("mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-zinc-50 dark:bg-zinc-800", stat.color)}>
-              <stat.icon size={20} />
-            </div>
-            <div className="text-2xl font-black text-zinc-900 dark:text-white">{stat.value}</div>
-            <div className="text-xs font-bold uppercase tracking-wider text-zinc-500">{stat.label}</div>
-          </div>
-        ))}
-      </div>
-
-
+      {/* WhatsApp Card */}
+      <a 
+        href="https://wa.me/919821886772" 
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group relative flex items-center gap-4 rounded-3xl border border-zinc-100 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-green-500/10 dark:border-zinc-800/50 dark:bg-zinc-900/50 dark:shadow-none dark:hover:bg-zinc-800/80"
+      >
+        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-green-50 text-green-600 ring-1 ring-green-100 transition-colors group-hover:bg-green-500 group-hover:text-white group-hover:ring-green-500 dark:bg-green-900/30 dark:ring-green-800/50">
+          <MessageCircle size={22} strokeWidth={2.5} />
+        </div>
+        <div className="min-w-0">
+          <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-zinc-400 dark:text-zinc-500">WhatsApp Us</p>
+          <p className="mt-0.5 text-base font-bold text-zinc-900 dark:text-white transition-colors group-hover:text-green-500 dark:group-hover:text-green-400">
+            +91 98218 86772
+          </p>
+        </div>
+        <div className="absolute right-6 opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-1">
+          <ArrowRight size={18} className="text-green-500" />
+        </div>
+      </a>
     </div>
   );
 };

@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { MapPin } from "lucide-react";
+import { MapPin, Mail } from "lucide-react";
 
 
 const Footer = () => {
@@ -81,10 +81,21 @@ const Footer = () => {
               <div className="flex items-start gap-3">
                 <MapPin size={16} className="mt-0.5 shrink-0 text-blue-500" />
                 <p className="text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">
-                  Noida,<br />
+                  Noida, G.B Nagar,<br />
                   Uttar Pradesh 201301,<br />
                   India
                 </p>
+              </div>
+
+              {/* Email */}
+              <div className="flex items-center gap-3">
+                <Mail size={16} className="shrink-0 text-blue-500" />
+                <a 
+                  href="mailto:info@bizmint.co.in"
+                  className="text-sm text-zinc-500 dark:text-zinc-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium"
+                >
+                  info@bizmint.co.in
+                </a>
               </div>
             </div>
 
