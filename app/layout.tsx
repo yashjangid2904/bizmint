@@ -17,7 +17,7 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://bizmint.in"),
+  metadataBase: new URL("https://bizmint.co.in"),
   title: {
     default: "Bizmint LLP | Premium Business Advisory & Compliance",
     template: "%s | Bizmint LLP",
@@ -35,13 +35,13 @@ export const metadata: Metadata = {
     "ROC filing",
     "Bizmint LLP",
   ],
-  authors: [{ name: "Bizmint LLP", url: "https://bizmint.in" }],
+  authors: [{ name: "Bizmint LLP", url: "https://bizmint.co.in" }],
   creator: "Bizmint LLP",
   publisher: "Bizmint LLP",
   openGraph: {
     type: "website",
     locale: "en_IN",
-    url: "https://bizmint.in",
+    url: "https://bizmint.co.in",
     siteName: "Bizmint LLP",
     title: "Bizmint LLP | Premium Business Advisory & Compliance",
     description:
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://bizmint.in",
+    canonical: "https://bizmint.co.in",
   },
 };
 
@@ -73,8 +73,8 @@ const organizationJsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "Bizmint LLP",
-  url: "https://bizmint.in",
-  logo: "https://bizmint.in/logo.png",
+  url: "https://bizmint.co.in",
+  logo: "https://bizmint.co.in/logo.png",
   description:
     "Bizmint LLP provides expert regulatory advisory, company registration, and compliance services for businesses and investors across India.",
   address: {
@@ -88,10 +88,10 @@ const websiteJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   name: "Bizmint LLP",
-  url: "https://bizmint.in",
+  url: "https://bizmint.co.in",
   potentialAction: {
     "@type": "SearchAction",
-    target: "https://bizmint.in/services?q={search_term_string}",
+    target: "https://bizmint.co.in/services?q={search_term_string}",
     "query-input": "required name=search_term_string",
   },
 };

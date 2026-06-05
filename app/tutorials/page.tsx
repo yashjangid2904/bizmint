@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     "Learn business registration, compliance filing, and regulatory processes with step-by-step tutorials and video guides from Bizmint LLP.",
   alternates: {
-    canonical: "https://bizmint.in/tutorials",
+    canonical: "https://bizmint.co.in/tutorials",
   },
 };
 

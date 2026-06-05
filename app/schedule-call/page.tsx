@@ -6,13 +6,13 @@ export const metadata: Metadata = {
   description:
     "Book a free consultation call with Bizmint LLP's business advisory experts. Get personalized guidance on registration, compliance, and tax planning.",
   alternates: {
-    canonical: "https://bizmint.in/schedule-call",
+    canonical: "https://bizmint.co.in/schedule-call",
   },
   openGraph: {
     title: "Schedule a Call | Bizmint LLP",
     description:
       "Book a free consultation call with our business advisory experts for personalized guidance.",
-    url: "https://bizmint.in/schedule-call",
+    url: "https://bizmint.co.in/schedule-call",
   },
 };
 

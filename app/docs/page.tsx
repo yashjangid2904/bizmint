@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     "Explore the Bizmint documentation — guides on company setup, compliance API reference, legal standards, and security certifications.",
   alternates: {
-    canonical: "https://bizmint.in/docs",
+    canonical: "https://bizmint.co.in/docs",
   },
 };
 

@@ -23,12 +23,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         title: `${resource.title} | Bizmint LLP`,
         description: resource.description || `Read our guide/template on "${resource.title}".`,
         alternates: {
-          canonical: `https://bizmint.in/resources/${slug}`,
+          canonical: `https://bizmint.co.in/resources/${slug}`,
         },
         openGraph: {
           title: `${resource.title} | Bizmint LLP`,
           description: resource.description || `Read our guide/template on "${resource.title}".`,
-          url: `https://bizmint.in/resources/${slug}`,
+          url: `https://bizmint.co.in/resources/${slug}`,
           type: "article",
           images: resource.thumbnail ? [{ url: resource.thumbnail }] : [],
         },
@@ -42,7 +42,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: "Resource | Bizmint LLP",
     description: "Read this compliance guide, business template, or resource from Bizmint LLP.",
     alternates: {
-      canonical: `https://bizmint.in/resources/${slug}`,
+      canonical: `https://bizmint.co.in/resources/${slug}`,
     },
   };
 }

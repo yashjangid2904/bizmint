@@ -6,13 +6,13 @@ export const metadata: Metadata = {
   description:
     "Access free compliance guides, business templates, video tutorials, and downloadable resources from Bizmint LLP.",
   alternates: {
-    canonical: "https://bizmint.in/resources",
+    canonical: "https://bizmint.co.in/resources",
   },
   openGraph: {
     title: "Resources & Downloads | Bizmint LLP",
     description:
       "Free compliance guides, business templates, video tutorials, and downloadable resources.",
-    url: "https://bizmint.in/resources",
+    url: "https://bizmint.co.in/resources",
   },
 };
 

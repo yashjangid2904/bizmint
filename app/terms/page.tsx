@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     "Read Bizmint LLP's terms of service — the legal agreement governing your use of our business advisory and compliance platform.",
   alternates: {
-    canonical: "https://bizmint.in/terms",
+    canonical: "https://bizmint.co.in/terms",
   },
   robots: {
     index: true,

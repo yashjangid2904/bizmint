@@ -6,13 +6,13 @@ export const metadata: Metadata = {
   description:
     "Expert analysis on regulatory changes, business strategies, taxation, and compliance updates from Bizmint LLP.",
   alternates: {
-    canonical: "https://bizmint.in/blog",
+    canonical: "https://bizmint.co.in/blog",
   },
   openGraph: {
     title: "Blog | Insights & Updates | Bizmint LLP",
     description:
       "Expert analysis on regulatory changes, business strategies, taxation, and compliance updates.",
-    url: "https://bizmint.in/blog",
+    url: "https://bizmint.co.in/blog",
   },
 };
 

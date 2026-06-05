@@ -3,7 +3,7 @@ import { ALL_SERVICES } from "@/lib/services-data";
 import dbConnect from "@/lib/mongodb";
 import Resource from "@/models/Resource";
 
-const BASE_URL = "https://bizmint.in";
+const BASE_URL = "https://bizmint.co.in";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();

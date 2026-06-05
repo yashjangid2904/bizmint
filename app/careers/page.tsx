@@ -6,13 +6,13 @@ export const metadata: Metadata = {
   description:
     "Join Bizmint LLP — explore careers in business advisory, compliance, tax, audit, and regulatory technology. Build the future of business services.",
   alternates: {
-    canonical: "https://bizmint.in/careers",
+    canonical: "https://bizmint.co.in/careers",
   },
   openGraph: {
     title: "Careers at Bizmint LLP | Join Our Team",
     description:
       "Explore career opportunities in business advisory, compliance, tax, and regulatory technology at Bizmint LLP.",
-    url: "https://bizmint.in/careers",
+    url: "https://bizmint.co.in/careers",
   },
 };
 

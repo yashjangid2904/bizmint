@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     "Read Bizmint LLP's privacy policy — how we collect, use, and protect your personal information and business data.",
   alternates: {
-    canonical: "https://bizmint.in/privacy",
+    canonical: "https://bizmint.co.in/privacy",
   },
   robots: {
     index: true,

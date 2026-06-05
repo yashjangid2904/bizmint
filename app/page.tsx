@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     "Bizmint LLP provides expert regulatory advisory, company registration, GST, LLP, NBFC registration, and compliance services for businesses and investors across India.",
   alternates: {
-    canonical: "https://bizmint.in",
+    canonical: "https://bizmint.co.in",
   },
 };
 

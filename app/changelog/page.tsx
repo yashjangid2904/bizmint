@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     "Track the latest updates, new features, security improvements, and platform enhancements at Bizmint LLP.",
   alternates: {
-    canonical: "https://bizmint.in/changelog",
+    canonical: "https://bizmint.co.in/changelog",
   },
 };
 

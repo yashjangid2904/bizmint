@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     "Get help from Bizmint LLP — access our support center for FAQs, troubleshooting guides, and direct expert assistance for your compliance needs.",
   alternates: {
-    canonical: "https://bizmint.in/support",
+    canonical: "https://bizmint.co.in/support",
   },
 };
 

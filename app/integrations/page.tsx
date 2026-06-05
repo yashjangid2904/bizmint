@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     "Bizmint connects with MCA, GSTN, TRACES, and cloud storage to automate your compliance workflows. Explore our native integrations and developer API.",
   alternates: {
-    canonical: "https://bizmint.in/integrations",
+    canonical: "https://bizmint.co.in/integrations",
   },
 };
 

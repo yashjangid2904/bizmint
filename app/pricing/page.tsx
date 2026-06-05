@@ -6,13 +6,13 @@ export const metadata: Metadata = {
   description:
     "Explore Bizmint LLP's transparent pricing plans for company registration, compliance services, GST filing, LLP registration, and business advisory.",
   alternates: {
-    canonical: "https://bizmint.in/pricing",
+    canonical: "https://bizmint.co.in/pricing",
   },
   openGraph: {
     title: "Pricing | Bizmint LLP",
     description:
       "Transparent and competitive pricing for company registration, compliance, GST, and business advisory services.",
-    url: "https://bizmint.in/pricing",
+    url: "https://bizmint.co.in/pricing",
   },
 };
 
