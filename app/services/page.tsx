@@ -1,12 +1,21 @@
-"use client";
+import type { Metadata } from "next";
+import ServicesPageClient from "./ServicesPageClient";
 
-import React from "react";
-import ExploreServices from "@/components/sections/ExploreServices";
+export const metadata: Metadata = {
+  title: "Business Services | Company Registration & Compliance",
+  description:
+    "Explore Bizmint LLP's complete range of business services — company registration, GST, LLP, NBFC, trademark, compliance, tax advisory, and FEMA services.",
+  alternates: {
+    canonical: "https://bizmint.co.in/services",
+  },
+  openGraph: {
+    title: "Business Services | Bizmint LLP",
+    description:
+      "Complete range of business services — company registration, GST, compliance, tax advisory, and more.",
+    url: "https://bizmint.co.in/services",
+  },
+};
 
 export default function ServicesPage() {
-  return (
-    <main className="min-h-screen bg-white dark:bg-[#030014] pt-20">
-      <ExploreServices />
-    </main>
-  );
+  return <ServicesPageClient />;
 }
