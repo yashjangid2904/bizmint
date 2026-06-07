@@ -3,6 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { MapPin, Mail } from "lucide-react";
+import { Linkedin, Instagram, X, Youtube } from "@/components/ui/BrandIcons";
 
 
 const Footer = () => {
@@ -24,7 +25,7 @@ const Footer = () => {
         { name: "LinkedIn", href: "https://www.linkedin.com/company/bizmint-llp/", isExternal: true },
         { name: "Twitter (X)", href: "https://x.com/BizmintInfo", isExternal: true },
         { name: "YouTube", href: "https://youtube.com/@bizmintofficial?si=w4flVts_VM_Ysoa2", isExternal: true },
-        { name: "Instagram", href: "https://www.instagram.com/bizmintofficial?utm_source=qr&igsh=MXhxN2J3NmxtOXEzNQ%3D%3D", isExternal: true },
+        { name: "Instagram", href: "https://www.instagram.com/bizmintofficial?utm_source=qr&igsh=MXhxN2J3NmxtOXEzNQ==", isExternal: true },
       ],
     },
     {
@@ -95,6 +96,46 @@ const Footer = () => {
                   className="text-sm text-zinc-500 dark:text-zinc-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium"
                 >
                   info@bizmint.co.in
+                </a>
+              </div>
+
+              {/* Social Media Icons */}
+              <div className="flex items-center gap-4 pt-2">
+                <a
+                  href="https://www.linkedin.com/company/bizmint-llp/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-zinc-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                  aria-label="LinkedIn"
+                >
+                  <Linkedin size={20} />
+                </a>
+                <a
+                  href="https://x.com/BizmintInfo"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
+                  aria-label="X (Twitter)"
+                >
+                  <X size={18} />
+                </a>
+                <a
+                  href="https://youtube.com/@bizmintofficial?si=w4flVts_VM_Ysoa2"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-zinc-400 hover:text-red-600 dark:hover:text-red-500 transition-colors"
+                  aria-label="YouTube"
+                >
+                  <Youtube size={20} />
+                </a>
+                <a
+                  href="https://www.instagram.com/bizmintofficial?utm_source=qr&igsh=MXhxN2J3NmxtOXEzNQ=="
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-zinc-400 hover:text-pink-600 dark:hover:text-pink-500 transition-colors"
+                  aria-label="Instagram"
+                >
+                  <Instagram size={20} />
                 </a>
               </div>
             </div>
