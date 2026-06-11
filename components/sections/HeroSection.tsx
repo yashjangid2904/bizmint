@@ -45,9 +45,9 @@ const POPULAR_TAGS_ROWS = [
   // Row 3 (4 items)
   [
     { label: "IEPF Claim", href: "/services/iepf-claim" },
-    { label: "FDI Compliance & RBI Reporting (FC-GPR / FC-TRS)", href: "/services/fc-gpr-filing" },
+    { label: "SEBI Investment Advisor", href: "/services/sebi-investment-advisor-registration" },
+    { label: "SEBI Reasearch Analyst", href: "/services/sebi-research-analyst" },
     { label: "Foreign Company Registration & India Entry Advisory", href: "/services/foreign-subsidiary" },
-    { label: "NBFC Acquisition / Change in Control Advisory", href: "/services/nbfc-acquisition" },
   ]
 ];
 
