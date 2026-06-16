@@ -51,8 +51,8 @@ export async function POST(req: Request) {
     });
 
     return NextResponse.json({ success: true, message: "Access Granted" }, { status: 200 });
-  } catch (error) {
+  } catch (error: any) {
     console.error("Admin verification error:", error);
-    return NextResponse.json({ success: false, message: "Internal server error" }, { status: 500 });
+    return NextResponse.json({ success: false, message: String(error) }, { status: 500 });
   }
 }
