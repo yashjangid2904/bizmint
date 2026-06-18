@@ -46,12 +46,21 @@ export const metadata: Metadata = {
     title: "Bizmint LLP | Premium Business Advisory & Compliance",
     description:
       "Expert regulatory advisory, company registration, and compliance services for businesses and investors across India.",
+    images: [
+      {
+        url: "/favicon.png",
+        width: 512,
+        height: 512,
+        alt: "Bizmint LLP",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Bizmint LLP | Premium Business Advisory & Compliance",
     description:
       "Expert regulatory advisory, company registration, and compliance services for businesses and investors across India.",
+    images: ["/favicon.png"],
   },
   robots: {
     index: true,
@@ -68,8 +77,12 @@ export const metadata: Metadata = {
     canonical: "https://bizmint.co.in",
   },
   icons: {
-    icon: "/favicon.png",
-    apple: "/favicon.png",
+    icon: [
+      { url: "/favicon.png", type: "image/png" },
+    ],
+    apple: [
+      { url: "/favicon.png", type: "image/png" },
+    ],
     shortcut: "/favicon.png",
   },
 };
