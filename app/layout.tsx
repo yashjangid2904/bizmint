@@ -5,6 +5,7 @@ import Navbar from "@/components/navbar/Navbar";
 import Footer from "@/components/layout/Footer";
 import SecretAdminTrigger from "@/components/SecretAdminTrigger";
 import JsonLd from "@/components/seo/JsonLd";
+import NewsletterPopup from "@/components/NewsletterPopup";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -133,6 +134,7 @@ export default function RootLayout({
         </main>
         <Footer />
         <SecretAdminTrigger />
+        <NewsletterPopup />
       </body>
     </html>
   );

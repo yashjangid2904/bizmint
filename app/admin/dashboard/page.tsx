@@ -1,14 +1,15 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Plus, Edit2, Trash2, Video, FileText, LayoutDashboard, LogOut } from "lucide-react";
+import { Plus, Edit2, Trash2, Video, FileText, LayoutDashboard, LogOut, Mail } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 export default function AdminDashboard() {
-  const [activeTab, setActiveTab] = useState<"resources" | "videos">("resources");
+  const [activeTab, setActiveTab] = useState<"resources" | "videos" | "subscribers">("resources");
   const [resources, setResources] = useState<any[]>([]);
   const [videos, setVideos] = useState<any[]>([]);
+  const [subscribers, setSubscribers] = useState<any[]>([]);
   const router = useRouter();
 
   const fetchData = async () => {
@@ -17,10 +18,14 @@ export default function AdminDashboard() {
         const res = await fetch("/api/resources");
         const data = await res.json();
         setResources(Array.isArray(data) ? data : []);
-      } else {
+      } else if (activeTab === "videos") {
         const res = await fetch("/api/videos");
         const data = await res.json();
         setVideos(Array.isArray(data) ? data : []);
+      } else {
+        const res = await fetch("/api/admin/subscribers");
+        const data = await res.json();
+        setSubscribers(Array.isArray(data) ? data : []);
       }
     } catch (error) {
       console.error("Failed to fetch data");
@@ -32,11 +37,19 @@ export default function AdminDashboard() {
   }, [activeTab]);
 
   const handleDelete = async (id: string) => {
-    if (!confirm("Are you sure you want to delete this?")) return;
+    if (!confirm(`Are you sure you want to delete this ${activeTab === "subscribers" ? "subscriber" : "item"}?`)) return;
     
     try {
-      const endpoint = activeTab === "resources" ? `/api/resources/${id}` : `/api/videos/${id}`;
-      await fetch(endpoint, { method: "DELETE" });
+      let endpoint = "";
+      if (activeTab === "resources") {
+        endpoint = `/api/resources/${id}`;
+      } else if (activeTab === "videos") {
+        endpoint = `/api/videos/${id}`;
+      } else {
+        endpoint = `/api/admin/subscribers/${id}`;
+      }
+      const res = await fetch(endpoint, { method: "DELETE" });
+      if (!res.ok) throw new Error("Delete failed");
       fetchData();
     } catch (error) {
       alert("Failed to delete");
@@ -70,6 +83,14 @@ export default function AdminDashboard() {
           >
             <Video size={18} /> YouTube Videos
           </button>
+          <button
+            onClick={() => setActiveTab("subscribers")}
+            className={`flex items-center gap-3 px-4 py-3 rounded-xl font-medium transition-all ${
+              activeTab === "subscribers" ? "bg-blue-50 text-blue-600 dark:bg-blue-900/20 dark:text-blue-400" : "text-zinc-600 dark:text-zinc-400 hover:bg-zinc-50 dark:hover:bg-zinc-800/50"
+            }`}
+          >
+            <Mail size={18} /> Subscribers
+          </button>
         </div>
 
         <button
@@ -85,59 +106,93 @@ export default function AdminDashboard() {
         <div className="flex items-center justify-between mb-8">
           <h1 className="text-2xl font-bold text-zinc-900 dark:text-white flex items-center gap-2">
             <LayoutDashboard size={24} className="text-blue-600" />
-            {activeTab === "resources" ? "Manage Resources" : "Manage Videos"}
+            {activeTab === "resources" ? "Manage Resources" : activeTab === "videos" ? "Manage Videos" : "Newsletter Subscribers"}
           </h1>
-          <Link
-            href={`/admin/dashboard/create-${activeTab === "resources" ? "resource" : "video"}`}
-            className="flex items-center gap-2 bg-blue-600 text-white px-5 py-2.5 rounded-full font-semibold hover:bg-blue-700 transition-all shadow-lg shadow-blue-600/20"
-          >
-            <Plus size={18} /> Add New
-          </Link>
+          {activeTab !== "subscribers" && (
+            <Link
+              href={`/admin/dashboard/create-${activeTab === "resources" ? "resource" : "video"}`}
+              className="flex items-center gap-2 bg-blue-600 text-white px-5 py-2.5 rounded-full font-semibold hover:bg-blue-700 transition-all shadow-lg shadow-blue-600/20"
+            >
+              <Plus size={18} /> Add New
+            </Link>
+          )}
         </div>
 
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse">
             <thead>
               <tr className="border-b border-zinc-200 dark:border-zinc-800 text-sm font-semibold text-zinc-500">
-                <th className="pb-4 pl-4">Title</th>
+                <th className="pb-4 pl-4">{activeTab === "subscribers" ? "Email" : "Title"}</th>
                 {activeTab === "resources" && <th className="pb-4">Category</th>}
                 <th className="pb-4">Status</th>
+                {activeTab === "subscribers" && <th className="pb-4">Subscribed At</th>}
                 <th className="pb-4 text-right pr-4">Actions</th>
               </tr>
             </thead>
             <tbody>
-              {(activeTab === "resources" ? resources : videos).map((item) => (
-                <tr key={item._id} className="border-b border-zinc-100 dark:border-zinc-800/50 hover:bg-zinc-50 dark:hover:bg-zinc-800/30 transition-colors">
-                  <td className="py-4 pl-4 font-medium text-zinc-900 dark:text-white">
-                    {item.title}
-                  </td>
-                  {activeTab === "resources" && (
-                    <td className="py-4 text-sm text-zinc-600 dark:text-zinc-400">
-                      {item.category}
+              {activeTab === "subscribers" ? (
+                subscribers.map((item) => (
+                  <tr key={item._id} className="border-b border-zinc-100 dark:border-zinc-800/50 hover:bg-zinc-50 dark:hover:bg-zinc-800/30 transition-colors">
+                    <td className="py-4 pl-4 font-medium text-zinc-900 dark:text-white">
+                      {item.email}
                     </td>
-                  )}
-                  <td className="py-4">
-                    {activeTab === "resources" ? (
-                      <span className={`px-2.5 py-1 text-xs font-semibold rounded-full ${item.isPublished ? 'bg-green-100 text-green-700' : 'bg-yellow-100 text-yellow-700'}`}>
-                        {item.isPublished ? 'Published' : 'Draft'}
+                    <td className="py-4">
+                      <span className={`px-2.5 py-1 text-xs font-semibold rounded-full ${item.status === 'subscribed' ? 'bg-green-100 text-green-700 dark:bg-green-950/20 dark:text-green-400' : 'bg-red-100 text-red-700 dark:bg-red-950/20 dark:text-red-400'}`}>
+                        {item.status}
                       </span>
-                    ) : (
-                      <span className="px-2.5 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-700">Video</span>
+                    </td>
+                    <td className="py-4 text-sm text-zinc-500 dark:text-zinc-400">
+                      {new Date(item.createdAt).toLocaleDateString("en-IN", {
+                        year: "numeric",
+                        month: "short",
+                        day: "numeric",
+                        hour: "2-digit",
+                        minute: "2-digit"
+                      })}
+                    </td>
+                    <td className="py-4 text-right pr-4">
+                      <div className="flex items-center justify-end gap-2">
+                        <button onClick={() => handleDelete(item._id)} className="p-2 text-red-500 hover:bg-red-50 dark:hover:bg-red-950/20 rounded-lg transition-colors" title="Delete Subscriber">
+                          <Trash2 size={18} />
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                ))
+              ) : (
+                (activeTab === "resources" ? resources : videos).map((item) => (
+                  <tr key={item._id} className="border-b border-zinc-100 dark:border-zinc-800/50 hover:bg-zinc-50 dark:hover:bg-zinc-800/30 transition-colors">
+                    <td className="py-4 pl-4 font-medium text-zinc-900 dark:text-white">
+                      {item.title}
+                    </td>
+                    {activeTab === "resources" && (
+                      <td className="py-4 text-sm text-zinc-600 dark:text-zinc-400">
+                        {item.category}
+                      </td>
                     )}
-                  </td>
-                  <td className="py-4 text-right pr-4">
-                    <div className="flex items-center justify-end gap-2">
-                      <button onClick={() => handleDelete(item._id)} className="p-2 text-red-500 hover:bg-red-50 rounded-lg transition-colors">
-                        <Trash2 size={18} />
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-              ))}
-              {(activeTab === "resources" ? resources : videos).length === 0 && (
+                    <td className="py-4">
+                      {activeTab === "resources" ? (
+                        <span className={`px-2.5 py-1 text-xs font-semibold rounded-full ${item.isPublished ? 'bg-green-100 text-green-700 dark:bg-green-950/20 dark:text-green-400' : 'bg-yellow-100 text-yellow-700 dark:bg-yellow-950/20 dark:text-yellow-400'}`}>
+                          {item.isPublished ? 'Published' : 'Draft'}
+                        </span>
+                      ) : (
+                        <span className="px-2.5 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-700 dark:bg-blue-950/20 dark:text-blue-400">Video</span>
+                      )}
+                    </td>
+                    <td className="py-4 text-right pr-4">
+                      <div className="flex items-center justify-end gap-2">
+                        <button onClick={() => handleDelete(item._id)} className="p-2 text-red-500 hover:bg-red-50 dark:hover:bg-red-950/20 rounded-lg transition-colors">
+                          <Trash2 size={18} />
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                ))
+              )}
+              {(activeTab === "resources" ? resources : activeTab === "videos" ? videos : subscribers).length === 0 && (
                 <tr>
-                  <td colSpan={4} className="py-8 text-center text-zinc-500">
-                    No items found. Click "Add New" to create one.
+                  <td colSpan={activeTab === "resources" ? 4 : 3} className="py-8 text-center text-zinc-500">
+                    No items found.
                   </td>
                 </tr>
               )}
