@@ -259,6 +259,7 @@ const Navbar = () => {
                 <div className="flex flex-col gap-1">
                   {[
                     { name: "About Us", href: "/about" },
+                    { name: "Updates", href: "/updates" },
                     { name: "Resources", href: "/resources" },
                     { name: "Contact", href: "/contact" },
                   ].map((link) => (

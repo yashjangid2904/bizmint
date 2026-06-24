@@ -1,0 +1,32 @@
+import mongoose, { Schema, Document } from "mongoose";
+
+export interface INewsletterSubscriber extends Document {
+  email: string;
+  status: "subscribed" | "unsubscribed";
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+const NewsletterSubscriberSchema: Schema = new Schema(
+  {
+    email: { 
+      type: String, 
+      required: true, 
+      unique: true, 
+      lowercase: true, 
+      trim: true 
+    },
+    status: { 
+      type: String, 
+      enum: ["subscribed", "unsubscribed"], 
+      default: "subscribed" 
+    },
+  },
+  { timestamps: true }
+);
+
+const NewsletterSubscriber = 
+  mongoose.models.NewsletterSubscriber || 
+  mongoose.model<INewsletterSubscriber>("NewsletterSubscriber", NewsletterSubscriberSchema);
+
+export default NewsletterSubscriber;
