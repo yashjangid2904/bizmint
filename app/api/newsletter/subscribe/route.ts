@@ -5,12 +5,7 @@ import { Resend } from "resend";
 
 async function sendWelcomeEmail(email: string) {
   const apiKey = process.env.RESEND_API_KEY;
-  const fromEmail = process.env.RESEND_FROM_EMAIL || "updates@bizmint.co.in";
-
-  // Use test onboarding sender if using Resend default test credentials
-  const senderAddress = apiKey && apiKey.startsWith("re_") && fromEmail === "updates@bizmint.co.in"
-    ? "onboarding@resend.dev"
-    : fromEmail;
+  const fromEmail = process.env.RESEND_FROM_EMAIL || "onboarding@resend.dev";
 
   if (!apiKey) {
     console.warn("⚠️ [Newsletter] RESEND_API_KEY not configured. Confirmation email skipped.");
@@ -27,64 +22,104 @@ async function sendWelcomeEmail(email: string) {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
       </head>
-      <body style="margin: 0; padding: 0; font-family: 'Segoe UI', Roboto, sans-serif; background-color: #f4f4f7;">
+      <body style="margin: 0; padding: 0; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #f4f4f7;">
         <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f4f4f7; padding: 30px 0;">
           <tr>
             <td align="center">
-              <table width="580" cellpadding="0" cellspacing="0" style="background-color: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.05); border: 1px solid #e8e8e8;">
+              <table width="580" cellpadding="0" cellspacing="0" style="background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.05); border: 1px solid #e8e8e8;">
                 
-                <!-- Header (Bizmint theme matching) -->
+                <!-- Header Banner -->
                 <tr>
-                  <td style="background: linear-gradient(135deg, #0f2354 0%, #1e40af 100%); padding: 35px 30px; text-align: center;">
-                    <h1 style="margin: 0; color: #ffffff; font-size: 24px; font-weight: 800; letter-spacing: -0.02em;">
-                      📢 Subscription Confirmed!
+                  <td style="background: linear-gradient(135deg, #16a34a 0%, #0d9488 100%); padding: 40px 30px; text-align: center;">
+                    <h1 style="margin: 0; color: #ffffff; font-size: 26px; font-weight: 700; letter-spacing: -0.02em;">
+                      Welcome to Bizmint
                     </h1>
-                    <p style="margin: 8px 0 0 0; color: #93c5fd; font-size: 13px; font-weight: 500;">
-                      Bizmint Live Regulatory Alerts
+                    <p style="margin: 8px 0 0 0; color: #dcfce7; font-size: 14px; font-weight: 500;">
+                      Your Portal to Real-time Regulatory Intelligence
                     </p>
                   </td>
                 </tr>
 
-                <!-- Content -->
+                <!-- Content Body -->
                 <tr>
                   <td style="padding: 40px 30px;">
-                    <p style="margin: 0 0 16px 0; font-size: 15px; color: #374151; line-height: 1.6; font-weight: 500;">
+                    <p style="margin: 0 0 16px 0; font-size: 16px; color: #374151; line-height: 1.6;">
                       Hello,
                     </p>
-                    <p style="margin: 0 0 20px 0; font-size: 15px; color: #374151; line-height: 1.6;">
-                      Thank you for subscribing to **Bizmint Regulatory Alerts**. Your email has been successfully registered to receive our daily digest of crucial updates.
+                    <p style="margin: 0 0 24px 0; font-size: 15px; color: #4b5563; line-height: 1.6;">
+                      Thank you for subscribing to the Bizmint newsletter. You are now part of an elite community of compliance officers, legal professionals, and business executives who stay informed about the latest regulatory developments.
                     </p>
                     
-                    <div style="background-color: #f8fafc; border-left: 4px solid #2563eb; padding: 15px 20px; border-radius: 8px; margin-bottom: 25px;">
-                      <p style="margin: 0; font-size: 14px; color: #1e293b; font-weight: 600;">
-                        What you will receive:
-                      </p>
-                      <p style="margin: 6px 0 0 0; font-size: 13px; color: #475569; line-height: 1.5;">
-                        • Real-time RBI Press Releases & Speeches<br>
-                        • Important Notifications & Regulatory Instructions<br>
-                        • Policy changes, Master Directions, and Draft Frameworks
-                      </p>
-                    </div>
-
-                    <p style="margin: 0 0 30px 0; font-size: 14px; color: #4b5563; line-height: 1.6;">
-                      All notifications are parsed, stripped of boilerplate HTML, and reformatted in a clean layout to save you hours of manual tracking.
+                    <p style="margin: 0 0 16px 0; font-size: 15px; color: #374151; font-weight: 600; line-height: 1.6;">
+                      Here is what you will receive directly in your inbox:
                     </p>
 
+                    <!-- Features Table -->
+                    <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0; margin-bottom: 30px;">
+                      <tr>
+                        <td style="padding: 20px;">
+                          <table width="100%" cellpadding="0" cellspacing="0">
+                            <!-- Row 1 -->
+                            <tr>
+                              <td valign="top" style="padding-bottom: 16px; width: 40%; font-size: 14px; font-weight: 700; color: #1e293b; padding-right: 10px;">
+                                Real-time RBI Press Releases:
+                              </td>
+                              <td valign="top" style="padding-bottom: 16px; width: 60%; font-size: 14px; color: #475569; line-height: 1.5;">
+                                Immediate details on regulatory statements, instructions, and reports.
+                              </td>
+                            </tr>
+                            <!-- Row 2 -->
+                            <tr>
+                              <td valign="top" style="padding-bottom: 16px; font-size: 14px; font-weight: 700; color: #1e293b; padding-right: 10px;">
+                                RBI Notifications & Circulars:
+                              </td>
+                              <td valign="top" style="padding-bottom: 16px; font-size: 14px; color: #475569; line-height: 1.5;">
+                                Critical policy amendments, master directions, and compliance deadlines.
+                              </td>
+                            </tr>
+                            <!-- Row 3 -->
+                            <tr>
+                              <td valign="top" style="padding-bottom: 16px; font-size: 14px; font-weight: 700; color: #1e293b; padding-right: 10px;">
+                                Draft Guidelines & Consultations:
+                              </td>
+                              <td valign="top" style="padding-bottom: 16px; font-size: 14px; color: #475569; line-height: 1.5;">
+                                Early warnings and visibility on upcoming policy changes.
+                              </td>
+                            </tr>
+                            <!-- Row 4 -->
+                            <tr>
+                              <td valign="top" style="font-size: 14px; font-weight: 700; color: #1e293b; padding-right: 10px;">
+                                Actionable Checklists:
+                              </td>
+                              <td valign="top" style="font-size: 14px; color: #475569; line-height: 1.5;">
+                                Operational tools to implement new compliance directives smoothly.
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+
                     <!-- CTA Button -->
-                    <div style="text-align: center;">
-                      <a href="https://bizmint.co.in/updates" style="display: inline-block; background-color: #2563eb; color: #ffffff; padding: 12px 30px; border-radius: 10px; font-weight: 700; font-size: 13px; text-decoration: none; box-shadow: 0 4px 6px rgba(37,99,235,0.15);">
-                        View Updates Portal →
+                    <div style="text-align: center; margin-bottom: 30px;">
+                      <a href="https://bizmint.co.in/updates" style="display: inline-block; background-color: #16a34a; color: #ffffff; padding: 14px 32px; border-radius: 8px; font-weight: 700; font-size: 14px; text-decoration: none; box-shadow: 0 4px 6px rgba(22,163,74,0.15);">
+                        View Latest Updates Portal
                       </a>
                     </div>
+
+                    <!-- Contact -->
+                    <p style="margin: 0; font-size: 14px; color: #4b5563; text-align: center; line-height: 1.6;">
+                      If you have any questions or feedback, please reach out to us at <a href="mailto:info@bizmint.co.in" style="color: #16a34a; text-decoration: none; font-weight: 500;">info@bizmint.co.in</a>.
+                    </p>
                   </td>
                 </tr>
 
                 <!-- Footer -->
                 <tr>
-                  <td style="background-color: #fafafa; border-top: 1px solid #f1f1f1; padding: 20px 30px; text-align: center;">
+                  <td style="background-color: #fafafa; border-top: 1px solid #f1f1f1; padding: 20px 30px; text-align: center; border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;">
                     <p style="margin: 0; font-size: 11px; color: #9ca3af; line-height: 1.5;">
-                      You received this email because you subscribed to daily alerts on the Bizmint website.<br>
-                      © ${new Date().getFullYear()} Bizmint LLP · Noida, Uttar Pradesh, India
+                      You received this email because you subscribed to compliance updates on the Bizmint website.<br>
+                      © ${new Date().getFullYear()} Bizmint. All rights reserved.
                     </p>
                   </td>
                 </tr>
@@ -97,13 +132,18 @@ async function sendWelcomeEmail(email: string) {
       </html>
     `;
 
-    await resend.emails.send({
-      from: `Bizmint Alerts <${senderAddress}>`,
+    const { data, error } = await resend.emails.send({
+      from: `Bizmint <${fromEmail}>`,
       to: [email],
-      subject: "📢 Bizmint Daily Regulatory Alerts Subscription Confirmed",
+      subject: "Welcome to Bizmint",
       html: emailHtml,
     });
-    console.log(`✉️ [Newsletter] Confirmation email sent to ${email}`);
+
+    if (error) {
+      console.error(`❌ [Newsletter] Failed to send email to ${email}:`, error);
+    } else {
+      console.log(`✉️ [Newsletter] Confirmation email sent to ${email}:`, data);
+    }
   } catch (err: any) {
     console.error(`❌ [Newsletter] Failed to send email to ${email}:`, err.message);
   }
